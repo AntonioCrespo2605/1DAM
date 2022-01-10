@@ -1,0 +1,67 @@
+use empresaincidencias;
+
+create table Aplicacion(
+nombre varchar(20),
+descripcion varchar (300),
+
+primary key (nombre)
+);
+
+
+create table Incidencia(
+codigo int auto_increment,
+fecha_apertura date,
+fecha_cierre date,
+aplicacion varchar(20),
+
+primary key (codigo),
+foreign key (aplicacion) references Aplicacion
+on delete restrict
+on update cascade,
+
+check(fecha_apertura<=fecha _cierre),
+);
+
+
+create table version_aplicacion(
+num_version varchar(10),
+aplicacion varchar(20),
+
+primary key (num_version, aplicacion),
+
+foreign key(aplicacion) references Aplicacion
+on delete cascade
+on update cascade,
+);
+
+create table Programador(
+nif char(9),
+nss char(11) unique,
+nombre varchar(20),
+email varchar(50),
+
+primary key (nif),
+);
+
+
+alter table Incidencia 
+add column programador_descubridor,
+foreign key (programador_descubridor) references Programador
+on delete restrict
+on update cascade;
+
+
+create table Programador_Incidencia(
+incidencia int auto_increment,
+aplicacion varchar(20),
+
+primary key (incidencia, aplicacion),
+
+foreign key (incidencia)references Incidencia
+on delete restrict
+on update cascade,
+
+foreign key (aplicacion)references Aplicacion
+on delete restrict
+on update cascade,
+);
