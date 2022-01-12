@@ -14,6 +14,16 @@ public class Main {
 		
 		
 		//EJ2
+		Cuenta cuentaOrigen=new Cuenta("Juan","1a",0,1000);
+		Cuenta cuentaDestino=new Cuenta("Marcos","2b",5,3000);
+		
+		System.out.println("cuenta de Origen: "+cuentaOrigen.toString());
+		System.out.println("cuenta de Destino: "+cuentaDestino.toString());
+		
+		double importe=500;
+		cuentaOrigen.transferencia(cuentaDestino, importe);
+		System.out.println("cuenta de Origen sin importe:"+cuentaOrigen.toString());
+		System.out.println("cuenta de Destino con importe:"+cuentaDestino.toString());
 		
 	}
 
