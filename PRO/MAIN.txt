@@ -1,0 +1,20 @@
+public class Main {
+
+	public static void main(String[] args) {
+		//EJ1
+		Libro librovacio=new Libro();
+		System.out.println(librovacio.toString());
+		librovacio.setAutor("juan");
+		System.out.println(librovacio.toString());
+		Libro libro1=new Libro("1111111d","la biblia 2 más biblia que nunca","Jesucristo", 666);
+		System.out.println(libro1.toString());
+		
+		Libro libro2=new Libro("2222222h","la biblia 3 el regreso de san Pedro","Pedro",888);
+		System.out.println(libro2.toString());
+		
+		
+		//EJ2
+		
+	}
+
+}
