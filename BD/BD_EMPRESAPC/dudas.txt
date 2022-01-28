@@ -1,7 +1,0 @@
--(0,n)en producto?
--Tabla envío (s/n)
--login(s/n)
--precio_total(venta)(s/n)
--compañia null/nn
--fecha_hora o fecha y hora
--direccion de usuario
