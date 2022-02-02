@@ -9,13 +9,12 @@ nombre varchar(50)not null,
 apellidos varchar(100)not null,
 telefono varchar(15)not null,
 pais varchar(20)not null,
-
+residencia int not null,
 primary key(id)
 ); 
 
 create or replace table direccion(
 id_dir int auto_increment,
-usuario int,
 calle varchar(20)not null,
 numero int not null,
 cp int(5)not null,
@@ -23,11 +22,24 @@ poblacion varchar(20)not null,
 piso int not null,
 letra char(9)not null,
 
-foreign key(usuario)references usuario(id)
+primary key(id_dir)
+);
+
+alter table usuario add constraint foreign key(residencia)references direccion(id_dir) on delete restrict on update cascade;
+
+create or replace table direccion_usuario(
+direccion int,
+usuario int,
+
+primary key(direccion,usuario),
+
+foreign key (direccion)references direccion (id_dir)
 on delete cascade
 on update cascade,
 
-primary key(id_dir,usuario)
+foreign key(usuario)references usuario(id)
+on delete cascade 
+on update cascade
 );
 
 create or replace table login(
@@ -46,12 +58,31 @@ create or replace table venta(
 usuario int,
 fecha date,
 hora time,
-companhia_envio varchar(50)not null,
-fecha_envio date,
 
 primary key(usuario,fecha,hora),
-foreign key(usuario)references usuario(id)
+foreign key(usuario)references login(usuario)
 on delete cascade
+on update cascade
+);
+
+create or replace table envio(
+id int auto_increment,
+companhia_envio varchar(50)not null,
+fecha_envio date not null,
+descripcion text(200)not null,
+direccion int not null,
+usuario int not null,
+fecha_venta date not null,
+hora_venta time not null,
+
+primary key(id),
+
+foreign key(direccion)references direccion(id_dir)
+on delete restrict 
+on update cascade,
+
+foreign key(usuario,fecha_venta,hora_venta) references venta (usuario,fecha,hora)
+on delete cascade 
 on update cascade
 );
 
