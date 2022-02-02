@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Simulacion {
+	static Scanner sc=new Scanner(System.in);
+	private Espectador [][]sala = new Espectador [8][9];
+	private boolean [][]ocupacion=new boolean[8][9];
+	private Pelicula peli=new Pelicula();
+	private final char[]letras= {'A','B','C','D','E','F','G','H','I'};
+	
+	public void Simulacion() {
+		setOcupacionToFalse();
+		System.out.println("Datos de la peli:");
+		buildPeli();
+		
+	}
+	
+	public void setPlace(Espectador e,int i, int j) {
+		this.sala[i][j]=e;
+	}
+	
+	private String place(int i, int j) {
+		return (""+(8-i)+letras[j]);
+	}
+	
+	private void setOcupacionToFalse() {
+		for(int i=0;i<this.ocupacion.length;i++) {
+			for(int j=0;j<this.ocupacion[i].length;j++) {
+				this.ocupacion[i][j]=false;
+			}
+		}
+	}
+	
+	private void buildPeli() {
+		System.out.println("Título de la peli: ");
+		this.peli.setTitulo(sc.nextLine());
+		System.out.println("Duración de la peli '"+this.peli.getTitulo()+"' en minutos(si se introduce un valor negativo se tomará como positivo): ");
+		this.peli.setDuracion(Integer.parseInt(sc.nextLine()));
+		System.out.println("Edad mínima para ver la peli '"+this.peli.getTitulo()+"'(si se introduce un valor negativo se tomará como positivo): ");
+		this.peli.setEdadMin(Integer.parseInt(sc.nextLine()));
+		System.out.println("Director de la peli'"+this.peli.getTitulo()+"';");
+		this.peli.setDirector(sc.nextLine());
+	}
+	
+	private Espectador buildEspectador() {
+		Espectador toret=new Espectador();
+		System.out.println("Nombre:");
+		return toret;
+	}
+	
+	
+
+}
