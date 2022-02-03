@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arboles>
+    <arbol> 
+        <latin>acer_monspessulanum</latin>
+        <nombre_comun>Arce de Montpellier,Arce Menor</nombre_comun>
+        <vegetacion>caducifolio</vegetacion>
+        <altura>de 6 a 10 metros</altura>
+        <forma_estructura>copa esférica. Tronco principal recto con bifurcaciones. Ramage colgante</forma_estructura>
+        <color_primavera>Haz verde brillante, envés verde blanquecino</color_primavera>
+        <resistencia_heladas>Heladas fuertes (hasta -15ºC)</resistencia_heladas>
+    </arbol>
+    <arbol>
+        <latin>olea_europea</latin>
+        <nombre_comun>Olivo</nombre_comun>
+        <vegetacion>Perenne</vegetacion>
+        <altura>de 8 a 15 metros</altura>
+        <forma_estructura>Copa irregular. Tronco principal irregular con bifurcaciones</forma_estructura>
+    </arbol>
+    <arbol>
+        <latin>ramage_tortuoso</latin>
+        <color_primavera>Haz verde oscuro, envés verde plateado</color_primavera>
+        <resistencia_heladas>Heladas medias (hasta -10ºC)</resistencia_heladas>
+    </arbol>
+    <arbol>
+        <latin>platanus_orientalis</latin>
+        <nombre_comun>Platano</nombre_comun>
+        <vegetacion>caducifolio</vegetacion>
+        <altura>de 20 a 25 metros</altura>
+        <forma_estructura>Copa ovoidal. Tronco principal recto. Ramaje expandido</forma_estructura>
+        <color_primavera>Haz verde medio, enves verde claro</color_primavera>
+        <color_otono>ocre</color_otono>
+        <resistencia_heladas>Heladas fuertes (hasta -20ºC)</resistencia_heladas>
+    </arbol>
+    <arbol>
+        <latin>quercus_ilex</latin>
+        <nombre_comun>Encina</nombre_comun>
+        <vegetacion>Perenne</vegetacion>
+    </arbol>
+</arboles>

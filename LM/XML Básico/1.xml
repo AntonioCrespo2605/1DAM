@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pedido>
+    <destinatario>Juan Delgado Martínez</destinatario>
+    <articulo>bicicleta A2023</articulo>
+    <direccion>calle Barco 4, tercer piso, letra A</direccion>
+    <fecha>19-5-2000</fecha>   
+</pedido>
