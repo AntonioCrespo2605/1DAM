@@ -17,7 +17,6 @@ public class Agencia {
 		return this.contId;
 	}
 	
-	
 	//constructor al que le llega un nombre y autogenera 10 pisos
 	public Agencia(String nombre) {
 		this.nombre=nombre;
@@ -42,12 +41,12 @@ public class Agencia {
 		Piso pisoaux;
 		//en alquiler
 		for(int i=1;i<6;i++) {
-			pisoaux = new Piso(i,("name "+i),("direction "+i),i*10,true,(i*100),false,1);
+			pisoaux = new Piso(i,(new Direccion(i)),i*10,true,(i*100),false,1);
 			aux.add(pisoaux);
 		}
 		//en venta
 		for(int i=5;i<11;i++) {
-			pisoaux = new Piso(i,("name "+i),("direction "+i),i*10,false,1,true,(i*100));
+			pisoaux = new Piso(i,(new Direccion(i)),i*10,false,1,true,(i*100));
 			aux.add(pisoaux);
 		}
 		
@@ -65,6 +64,7 @@ public class Agencia {
 	private ArrayList<Piso> getPisos() {
 		return this.pisos;
 	}
+	
 	//añade un nuevo piso
 	public void addNewAparment() {
 		System.out.println("Se ha generado un piso con el ID"+getContId());
@@ -84,10 +84,9 @@ public class Agencia {
 		boolean ventaux=false;
 		boolean alquiaux=false;
 		pisoaux.setId(0);
-		System.out.println("Nombre del piso:");
-		pisoaux.setNombre(sc.nextLine());
+		
 		System.out.println("Direccion del piso:");
-		pisoaux.setDireccion(sc.nextLine());
+		pisoaux.setDireccion(new Direccion());
 		
 		do {
 		System.out.println("Superficie en metros cuadrados:");
@@ -197,6 +196,153 @@ public class Agencia {
 			pisoaux.setId(getPisos().get(position).getId());
 		}
 	}
+
+	//modifica la direccion de un piso a partir de su id
+	public void setAparmentAdressWithId(int id) {
+		System.out.println("Escriba la nueva dirección:");
+		this.pisos.get(getPositionOfId(id)).setDireccion(new Direccion());
+	}
+	
+	//modifica la disponibilidad de venta de un piso
+	public void setOnSaleApatmentWithId(int id) {
+		String aux;
+		boolean repeat=true;
+		int pos=getPositionOfId(id);
+		
+		if(pos>=0) {
+		System.out.println("Para activar la venta escriba s, para desactivarla n y para cancelar c;");
+		aux=sc.nextLine();
+		aux.toLowerCase();
+		aux.trim(); 
+		
+		do {
+			switch(aux) {
+			case "s":
+				activarVentaDelPiso(pos);
+				repeat=false;
+				break;
+			case "n":
+				desactivarVentaDelPiso(pos);
+				repeat=false;
+				break;
+			case "c":
+				repeat=false;
+				break;
+			default:System.out.println("Opción incorrecta. Por favor inténtelo de nuevo;");
+			break;
+			}
+		}while(repeat);
+		}
+	}
+	
+	//activar la disponibilidad de venta de un piso
+	private void activarVentaDelPiso(int pos) {
+		boolean vent=this.pisos.get(pos).getVenta();
+		if(vent)System.out.println("El piso seleccionado ya está en venta;");
+		else {
+			this.pisos.get(pos).setVenta(true);
+			this.pisos.get(pos).setPrecioVenta(0);
+			System.out.println("Se ha puesto el precio de venta por defecto a cero;");
+		}
+	}
+	
+	//desactivar la disponibilidad de venta de un piso
+	private void desactivarVentaDelPiso(int pos) {
+		boolean alq=this.pisos.get(pos).getAlquiler();
+		if(alq==false)System.out.println("No se puede cancelar la venta de un piso si tampoco está en alquiler;");
+		else {
+			this.pisos.get(pos).setVenta(false);
+			this.pisos.get(pos).setPrecioVenta(0);
+		}
+	}
+	
+	//modifica el precio de venta de un piso
+	public void setOnSaleAparmentPriceWithId(int id) {
+		int pos=getPositionOfId(id);
+		
+		if(pos>=0) {
+			System.out.println("Escribe el nuevo precio de venta:");
+			float precio=Float.parseFloat(sc.nextLine());
+			if(precio<0)System.out.println("Precio inválido. Debe ser cero o mayor;");
+			else this.pisos.get(pos).setPrecioVenta(precio);	
+		}
+	}
+	
+	//modifica la disponibilidad de alquiler de un piso
+	public void setOnRentApatmentWithId(int id) {
+		String aux;
+		boolean repeat=true;
+		int pos=getPositionOfId(id);
+		if(pos>=0) {	
+		System.out.println("Para activar el alquiler escriba s, para desactivarlo n y para cancelar c;");
+		aux=sc.nextLine();
+		aux.toLowerCase();
+		aux.trim(); 
+		
+		do {
+			switch(aux) {
+			case "s":
+				activarAlquilerDelPiso(pos);
+				repeat=false;
+				break;
+			case "n":
+				desactivarAlquilerDelPiso(pos);
+				repeat=false;
+				break;
+			case "c":
+				repeat=false;
+				break;
+			default:System.out.println("Opción incorrecta. Por favor inténtelo de nuevo;");
+			break;
+			}
+		}while(repeat);
+		}
+	}
+	
+	//activar la disponibilidad de alquiler de un piso
+	private void activarAlquilerDelPiso(int pos) {
+		boolean alq=this.pisos.get(pos).getAlquiler();
+		if(alq)System.out.println("El piso seleccionado ya está en alquiler;");
+		else {
+			this.pisos.get(pos).setAlquiler(true);
+			this.pisos.get(pos).setPrecioAlquiler(0);
+			System.out.println("Se ha puesto el precio de venta por defecto a cero;");
+		}
+	}
+	
+	//desactivar la disponibilidad de alquiler de un piso
+	private void desactivarAlquilerDelPiso(int pos) {
+		boolean vent=this.pisos.get(pos).getVenta();
+		if(vent==false)System.out.println("No se puede cancelar el alquiler de un piso si tampoco está en venta;");
+		else {
+			this.pisos.get(pos).setAlquiler(false);
+			this.pisos.get(pos).setPrecioAlquiler(0);
+		}
+	}
+	
+	//modifica el precio de alquiler de un piso
+	public void setOnRentAparmentPriceWithId(int id) {
+		int pos=getPositionOfId(id);
+			
+		if(pos>=0) {
+			System.out.println("Escribe el nuevo precio de alquiler:");
+			float precio=Float.parseFloat(sc.nextLine());
+			if(precio<0)System.out.println("Precio inválido. Debe ser cero o mayor;");
+			else this.pisos.get(pos).setPrecioAlquiler(precio);	
+		}
+	}
+	
+	//modifica la superficie del piso
+	public void setSurfaceOfAparmentWithId(int id) {
+		int pos=getPositionOfId(id);
+		
+		if(pos>=0) {
+		System.out.println("Escribe la nueva superficie en metros cuadrados:");
+		int superficie=Integer.parseInt(sc.nextLine());
+		if(superficie<=0)System.out.println("Superficie inválida. Debe ser 1 o más;");
+		else this.pisos.get(pos).setMetrosCuadrados(superficie);
+		}
+	}
 	
 	//lista los apartamentos
 	public void showAllAparments() {
@@ -222,7 +368,6 @@ public class Agencia {
 			if(cont==0)System.out.println("No se han encontrado pisos en esta agencia :( ;");
 			else System.out.println("-------------------------------------------------------------------------------------------");
 		}
-		
 		
 	//devuelve una Agencia auxiliar filtrada con solo los pisos a la venta de la que le llega
 	public Agencia OnlyForSale(){
@@ -272,7 +417,7 @@ public class Agencia {
 	}
 	
 	//devuelve una Agencia auxiliar filtrada con solo los pisos entre en rango de valores de superficie
-	public Agencia OnlyBetweenSurfaces(float min, float max){
+	public Agencia OnlyBetweenSurfaces(int min, int max){
 		Agencia aux=new Agencia(this);
 		int aux2;
 		for(int i=0;i<aux.getPisos().size();i++) {
@@ -282,6 +427,7 @@ public class Agencia {
 			
 		return aux;
 	}
+	
 	
 	
 	

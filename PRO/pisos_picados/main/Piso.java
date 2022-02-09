@@ -6,14 +6,12 @@ public class Piso {
 	private boolean venta;
 	private float precio_venta;
 	private int metros_cuadrados;
-	private String direccion;
-	private String nombre;
+	private Direccion direccion;
 	private int id;
 	
 	public Piso() {
 		this.id=-1;
-		this.nombre="nameless";
-		this.direccion="unknown";
+		this.direccion=new Direccion("");
 		this.metros_cuadrados=1;
 		this.alquiler=false;
 		this.precio_alquiler=0;
@@ -23,8 +21,7 @@ public class Piso {
 	
 	private void setToDefault() {
 		this.id=-1;
-		this.nombre="nameless";
-		this.direccion="unknown";
+		this.direccion=new Direccion("");
 		this.metros_cuadrados=1;
 		this.alquiler=false;
 		this.precio_alquiler=0;
@@ -32,7 +29,7 @@ public class Piso {
 		this.precio_venta=0;
 	}
 	
-	public Piso(int id,String nombre,String direccion,int metros_cuadrados,boolean alquiler,float precio_alquiler,boolean venta, float precio_venta) {
+	public Piso(int id,Direccion direccion,int metros_cuadrados,boolean alquiler,float precio_alquiler,boolean venta, float precio_venta) {
 		boolean ok=true;
 		int cont_fails=0;
 		
@@ -68,7 +65,6 @@ public class Piso {
 			this.alquiler=alquiler;
 			this.venta=venta;
 			this.id=id;
-			this.nombre=nombre;
 			this.direccion=direccion;
 			this.metros_cuadrados=metros_cuadrados;
 			
@@ -85,10 +81,7 @@ public class Piso {
 	public int getId() {
 		return this.id;
 	}
-	public String getNombre() {
-		return this.nombre;
-	}
-	public String getDireccion() {
+	public Direccion getDireccion() {
 		return this.direccion;
 	}
 	public int getMetrosCuadrados() {
@@ -112,10 +105,8 @@ public class Piso {
 	public void setId(int id) {
 		this.id=id;
 	}
-	public void setNombre(String nombre) {
-		this.nombre=nombre;
-	}
-	public void setDireccion(String direccion) {
+	
+	public void setDireccion(Direccion direccion) {
 		this.direccion=direccion;
 	}
 	public void setMetrosCuadrados(int metros) {
@@ -176,7 +167,7 @@ public class Piso {
 				aux+=";\nPrecio de Alquiler:"+getPrecioAlquiler();
 			}else aux+=";\nAlquiler: No";
 			
-			toret+="ID:"+getId()+";\nnombre:"+getNombre()+";\nDireccion:"+getDireccion()+";\nSuperficie en metros cuadrados:"+getMetrosCuadrados()+aux;
+			toret+="ID:"+getId()+";\nDireccion:\n"+getDireccion().toString()+";\nSuperficie en metros cuadrados:"+getMetrosCuadrados()+aux;
 		}
 		return toret;
 	}
@@ -212,3 +203,4 @@ public class Piso {
 	
 	
 }
+
