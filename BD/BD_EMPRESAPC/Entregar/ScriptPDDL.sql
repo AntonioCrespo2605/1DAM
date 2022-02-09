@@ -46,7 +46,7 @@ create or replace table login(
 usuario int,
 nickname varchar(50)not null,
 email varchar(70)not null,
-contrasenha_sha256 varchar(1000)not null,
+contrasenha_sha256 char(64)not null,
 
 primary key (usuario),
 foreign key(usuario)references usuario(id)
