@@ -45,7 +45,7 @@ public class Agencia {
 			aux.add(pisoaux);
 		}
 		//en venta
-		for(int i=5;i<11;i++) {
+		for(int i=6;i<11;i++) {
 			pisoaux = new Piso(i,(new Direccion(i)),i*10,false,1,true,(i*100));
 			aux.add(pisoaux);
 		}
@@ -372,10 +372,16 @@ public class Agencia {
 	//devuelve una Agencia auxiliar filtrada con solo los pisos a la venta de la que le llega
 	public Agencia OnlyForSale(){
 		Agencia aux=new Agencia(this);
-		
+		int cont=0;
+		do {
+		cont=0;
 		for(int i=0;i<aux.getPisos().size();i++) {
-			if(aux.getPisos().get(i).getVenta()==false)aux.getPisos().remove(i);
+			if(aux.getPisos().get(i).getVenta()==false) {
+				aux.getPisos().remove(i);
+				cont++;
+			}
 		}
+		}while(cont>0);
 		
 		return aux;
 	}
@@ -383,10 +389,17 @@ public class Agencia {
 	//devuelve una Agencia auxiliar filtrada con solo los pisos en alquiler de la que le llega
 	public Agencia OnlyForRent(){
 		Agencia aux=new Agencia(this);
+		int cont=0;
 		
+		do {
+		cont=0;
 		for(int i=0;i<aux.getPisos().size();i++) {
-			if(aux.getPisos().get(i).getAlquiler()==false)aux.getPisos().remove(i);
+			if(aux.getPisos().get(i).getAlquiler()==false) {
+				aux.getPisos().remove(i);
+				cont++;
+			}
 		}
+		}while(cont>0);
 		
 		return aux;
 	}
@@ -428,7 +441,11 @@ public class Agencia {
 		return aux;
 	}
 	
-	
+	//devuelve la cantidad de pisos disponibles
+	public int howManyPisos() {
+		int toret=getPisos().size();
+		return toret;
+	}
 	
 	
 		

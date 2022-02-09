@@ -26,7 +26,7 @@ public class Main {
 			System.out.println("1-Añadir un piso a la agencia;" + "\n2-Modificar un piso a partir de su ID;"
 					+ "\n3-Borrar un piso a partir de su ID;" + "\n4-Aplicar filtros de búsqueda;"
 					+ "\n5-Buscar con los filtros seleccionados;" + "\n6-Modificar el nombre de la agencia;"
-					+ "\n7-Salir de la agencia;");
+					+ "\n7-Salir de la agencia;"+"\n8-Mostrar datos de la agencia;");
 			option = sc.nextLine();
 			option = option.trim();
 
@@ -53,11 +53,21 @@ public class Main {
 			case "7":
 				repeat = false;
 				break;
+			case "8":showDatos(name);
+				break;
 			default:
 				System.out.println("Opción incorrecta. Porfavor inténtelo de nuevo;");
 				break;
 			}
 		} while (repeat);
+		System.out.println("La empresa ha quebrado. Fin del programa :)");
+	}
+
+	public static void showDatos(String name) {
+		System.out.println("-----------------------------------------");
+		System.out.println("Nombre de la agencia: "+name);
+		System.out.println("Pisos disponibles:"+agencia.howManyPisos());
+		System.out.println("-----------------------------------------");
 	}
 
 	public static void showAgencia() {
