@@ -9,9 +9,9 @@ public class Direccion {
 	private String tipoCalle, calle ,ciudad, provincia;
 	private int num, cP, planta;
 	private static final String[] provincias = {"alava","albacete","alicante","almeria","asturias","avila","badajoz","barcelona","burgos",
-			"caceres","cadiz","cantabria","castellon","ciudadreal","cordoba","acoruña","cuenca","gerona","granada","guadalajara","guipuzcoa",
-			"huelva","huesca","islasbaleares","jaen","leon","lerida","lugo","madrid","malaga","murcia","navarra","ourense","palencia",
-			"laspalmas","pontevedra","larioja","salamanca","segovia","sevilla","soria","tarragona","tenerife","teruel","toledo","valencia",
+			"caceres","cadiz","cantabria","castellon","ciudad real","cordoba","a coruña","cuenca","gerona","granada","guadalajara","guipuzcoa",
+			"huelva","huesca","islas baleares","jaen","leon","lerida","lugo","madrid","malaga","murcia","navarra","ourense","palencia",
+			"las palmas","pontevedra","la rioja","salamanca","segovia","sevilla","soria","tarragona","tenerife","teruel","toledo","valencia",
 			"valladolid","vizcaya","zamora","zaragoza"};
 	private static final List<String> listaProvincias = Arrays.asList(provincias);
 	
@@ -85,7 +85,7 @@ public class Direccion {
 	private boolean correctProvincia(String pro) {
 		if(listaProvincias.contains(pro))return true;
 		else {
-			System.out.println("No se ha encontrado la provincia. Por favor, vuelva a intentarlo;");
+			System.out.println("No se ha encontrado la provincia. Por favor, vuelva a intentarlo (Sin tildes);");
 			System.out.println("Provincias disponibles:");
 			showProvincias();
 			return false;
@@ -165,3 +165,4 @@ public class Direccion {
 	}
 	
 }
+
