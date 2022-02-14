@@ -7,19 +7,21 @@ import java.util.Scanner;
 public class Direccion {
 	private static Scanner sc=new Scanner(System.in);
 	private String tipoCalle, calle ,ciudad, provincia;
-	private int num, cP, planta;
+	private int cP, planta;
+	char letra;
+	
 	private static final String[] provincias = {"alava","albacete","alicante","almeria","asturias","avila","badajoz","barcelona","burgos",
 			"caceres","cadiz","cantabria","castellon","ciudad real","cordoba","a coruña","cuenca","gerona","granada","guadalajara","guipuzcoa",
 			"huelva","huesca","islas baleares","jaen","leon","lerida","lugo","madrid","malaga","murcia","navarra","ourense","palencia",
 			"las palmas","pontevedra","la rioja","salamanca","segovia","sevilla","soria","tarragona","tenerife","teruel","toledo","valencia",
 			"valladolid","vizcaya","zamora","zaragoza"};
 	private static final List<String> listaProvincias = Arrays.asList(provincias);
-	
+	private static final char[]letras= {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'}; 
 	//constructor por defecto
 	public Direccion(String a) {
 		this.tipoCalle="";
 		this.calle="";
-		this.num=1;
+		this.letra='A';
 		this.planta=0;
 		this.ciudad="";
 		this.provincia="";
@@ -29,7 +31,7 @@ public class Direccion {
 	public Direccion(int i) {
 		this.tipoCalle="tipoCalle"+i;
 		this.calle="calle"+i;
-		this.num=i;
+		this.letra=letras[i];
 		this.planta=i;
 		this.ciudad="ciudad"+i;
 		this.provincia=provincias[i];
@@ -41,6 +43,7 @@ public class Direccion {
 		boolean repeat=false;
 		int aux;
 		String aux2;
+		char aux3;
 		
 		System.out.println("Tipo de calle:");
 		this.tipoCalle=sc.nextLine();
@@ -48,14 +51,17 @@ public class Direccion {
 		this.calle=sc.nextLine();
 		
 		do {
-		System.out.println("Número del piso: ");
-		aux=Integer.parseInt(sc.nextLine());
-		if(aux<=0) {
-			System.out.println("El número del piso debe ser 1 o más. Porfavor inténtelo de nuevo;");
-			repeat=true;
-		}else repeat=false;
+			repeat=false;
+			System.out.println("Letra del piso (Si escribe varias se cogerá la primera:): ");
+			aux2=sc.nextLine();
+			aux2.toUpperCase();
+			aux3=aux2.charAt(0);
+			if(!correctLetra(aux3)) {
+				System.out.println("Letra incorrecta.Por favor, inténtelo de nuevo;");
+				repeat=true;
+			}
 		}while(repeat);
-		this.num=aux;
+		this.letra=aux3;
 		
 		System.out.println("Número de planta: ");
 		this.planta=Integer.parseInt(sc.nextLine());
@@ -90,6 +96,12 @@ public class Direccion {
 			showProvincias();
 			return false;
 			}
+	}
+	private boolean correctLetra(char letra) {
+		for(int i=0;i<letras.length;i++) {
+			if(letra==letras[i])return true;
+		}
+		return false;
 	}
 	
 	private void showProvincias() {
@@ -136,12 +148,12 @@ public class Direccion {
 		this.provincia = provincia;
 	}
 
-	public int getNum() {
-		return num;
+	public int getLetra() {
+		return letra;
 	}
 
-	public void setNum(int num) {
-		this.num = num;
+	public void setNum(char letra) {
+		this.letra = letra;
 	}
 
 	public int getcP() {
@@ -161,8 +173,9 @@ public class Direccion {
 	}
 
 	public String toString() {
-		return getTipoCalle()+" "+getCalle()+" planta:"+getPlanta()+" num:"+getNum()+"\n"+getCiudad()+" "+getProvincia()+" "+getcP();
+		return getTipoCalle()+" "+getCalle()+" planta:"+getPlanta()+" num:"+getLetra()+"\n"+getCiudad()+" "+getProvincia()+" "+getcP();
 	}
 	
 }
+
 
