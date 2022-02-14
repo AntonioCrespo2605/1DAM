@@ -22,9 +22,10 @@ public class Main {
 
 		do {
 			repeat = true;
+			System.out.println("Bienvenido a "+agencia.getNombre()+";\n");
 			System.out.println("Elija una opción:");
-			System.out.println("1-Añadir un piso a la agencia;" + "\n2-Modificar un piso a partir de su ID;"
-					+ "\n3-Borrar un piso a partir de su ID;" + "\n4-Aplicar filtros de búsqueda;"
+			System.out.println("1-Añadir un piso a la agencia;" + "\n2-Modificar una propiedad a partir de su ID;"
+					+ "\n3-Borrar una propiedad a partir de su ID;" + "\n4-Aplicar filtros de búsqueda;"
 					+ "\n5-Buscar con los filtros seleccionados;" + "\n6-Modificar el nombre de la agencia;"
 					+ "\n7-Salir de la agencia;"+"\n8-Mostrar datos de la agencia;");
 			option = sc.nextLine();
@@ -66,7 +67,7 @@ public class Main {
 	public static void showDatos(String name) {
 		System.out.println("-----------------------------------------");
 		System.out.println("Nombre de la agencia: "+name);
-		System.out.println("Pisos disponibles:"+agencia.howManyPisos());
+		System.out.println("Propiedades disponibles:"+agencia.howManyPisos());
 		System.out.println("-----------------------------------------");
 	}
 
@@ -92,7 +93,7 @@ public class Main {
 		boolean todok = false;
 
 		do {
-			System.out.println("Escriba el ID del piso a modificar;\nPara cancelar escriba c;");
+			System.out.println("Escriba el ID de la propiedad a modificar;\nPara cancelar escriba c;");
 			op = sc.nextLine();
 			op.trim();
 
@@ -103,7 +104,7 @@ public class Main {
 
 			if (!op.equals("c")) {
 				if (agencia.getPositionOfId(idaux) == -1) {// getPositionofId(id) devuelve -1 si no se encuentra
-					System.out.println("No se ha encontrado el piso en la lista. Porfavor inténtelo de nuevo;");
+					System.out.println("No se ha encontrado la propiedad en la lista. Porfavor inténtelo de nuevo;");
 					todok = false;
 				} else
 					todok = true;
@@ -113,12 +114,12 @@ public class Main {
 		if (!op.equals("c")) {
 			do {
 				todok = true;
-				System.out.println("Elija una opcion :\n1-Modificar todos los atributos del piso;"
-						+ "\n2-Salir del modo de modificación;" + "\n3-Modificar la dirección del piso;"
-						+ "\n4-Modificar la disponibilidad del piso a la venta;"
-						+ "\n5-Modificar el precio de venta del piso;"
+				System.out.println("Elija una opcion :\n1-Modificar todos los atributos de la propiedad;"
+						+ "\n2-Salir del modo de modificación;" + "\n3-Modificar la dirección de la propiedad;"
+						+ "\n4-Modificar la disponibilidad de la propiedad a la venta;"
+						+ "\n5-Modificar el precio de venta de la propiedad;"
 						+ "\n6-Modificar la disponibilidad del piso en alquiler;"
-						+ "\n7-Modificar el precio de alquiler del piso;" + "\n8-Modificar la superficie del piso;");
+						+ "\n7-Modificar el precio de alquiler de la propiedad;" + "\n8-Modificar la superficie de la propiedad;");
 				op = sc.nextLine();
 				op.trim();
 				switch (op) {
@@ -153,13 +154,13 @@ public class Main {
 			} while (todok == false);
 
 		}
-		System.out.println("Fin del modo de modificacion de pisos;");
+		System.out.println("Fin del modo de modificacion de propiedades;");
 	}
 
 	public static void deleteAparment() {
 		String option;
 		int idaux;
-		System.out.println("Introduzca el ID del piso que quiere BORRAR o pulse c para CANCELAR:");
+		System.out.println("Introduzca el ID de la propiedad que quiere BORRAR o pulse c para CANCELAR:");
 		option = sc.nextLine();
 
 		if (!option.equals("c")) {
@@ -244,14 +245,14 @@ public class Main {
 	public static void filtro2() {
 		float precioaux;
 		do {
-			System.out.println("Precio mínimo del piso:");
+			System.out.println("Precio mínimo de la propiedad:");
 			precioaux = Float.parseFloat(sc.nextLine());
 			if (precioaux < 0)
 				System.out.println("No puede ser precio negativo. Porfavor, inténtelo de nuevo;");
 		} while (precioaux < 0);
 		pricemin = precioaux;
 		do {
-			System.out.println("Precio máximo del piso:");
+			System.out.println("Precio máximo de la propiedad:");
 			precioaux = Float.parseFloat(sc.nextLine());
 			if (precioaux <= pricemin) {
 				System.out.println("El precio máximo debe ser mayor al mínimo(" + pricemin + ");");
@@ -266,14 +267,14 @@ public class Main {
 	public static void filtro3() {
 		int superficieaux;
 		do {
-			System.out.println("Superficie mínima del piso en metros cuadrados:");
+			System.out.println("Superficie mínima de la propiedad en metros cuadrados:");
 			superficieaux = Integer.parseInt(sc.nextLine());
 			if (superficieaux <= 0)
 				System.out.println("La superficie debe ser 1 o más. Porfavor, inténtelo de nuevo;");
 		} while (superficieaux < 0);
 		surfacemin = superficieaux;
 		do {
-			System.out.println("Superficie máxima del piso:");
+			System.out.println("Superficie máxima de la propiedad:");
 			superficieaux = Integer.parseInt(sc.nextLine());
 			if (superficieaux <= surfacemin) {
 				System.out.println("La superficie máxima debe ser mayor a la mínima(" + surfacemin + ");");

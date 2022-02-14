@@ -39,7 +39,7 @@ public class Direccion {
 	}
 
 	//constructor mediante consola
-	public Direccion() {
+	public Direccion(boolean itsPiso) {
 		boolean repeat=false;
 		int aux;
 		String aux2;
@@ -50,11 +50,12 @@ public class Direccion {
 		System.out.println("Nombre de la calle: ");
 		this.calle=sc.nextLine();
 		
+		if(itsPiso) {
 		do {
 			repeat=false;
 			System.out.println("Letra del piso (Si escribe varias se cogerá la primera:): ");
 			aux2=sc.nextLine();
-			aux2.toUpperCase();
+			aux2=aux2.toUpperCase();
 			aux3=aux2.charAt(0);
 			if(!correctLetra(aux3)) {
 				System.out.println("Letra incorrecta.Por favor, inténtelo de nuevo;");
@@ -65,6 +66,11 @@ public class Direccion {
 		
 		System.out.println("Número de planta: ");
 		this.planta=Integer.parseInt(sc.nextLine());
+		}else {
+			this.letra='A';
+			this.planta=1;
+		}
+		
 		System.out.println("Ciudad: ");
 		this.ciudad=sc.nextLine();
 		
@@ -148,7 +154,7 @@ public class Direccion {
 		this.provincia = provincia;
 	}
 
-	public int getLetra() {
+	public char getLetra() {
 		return letra;
 	}
 
@@ -172,8 +178,11 @@ public class Direccion {
 		this.planta = planta;
 	}
 
-	public String toString() {
-		return getTipoCalle()+" "+getCalle()+" planta:"+getPlanta()+" num:"+getLetra()+"\n"+getCiudad()+" "+getProvincia()+" "+getcP();
+	public String toString(boolean itsPiso) {
+		String toret= getTipoCalle()+" "+getCalle();
+		if(itsPiso)toret+=" planta:"+getPlanta()+" letra:"+getLetra();
+		toret+="\n"+getCiudad()+" "+getProvincia()+" "+getcP();
+		return toret;
 	}
 	
 }

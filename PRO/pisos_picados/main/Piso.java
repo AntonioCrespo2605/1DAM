@@ -5,9 +5,10 @@ public class Piso {
 	private float precio_alquiler;
 	private boolean venta;
 	private float precio_venta;
-	private int metros_cuadrados;
+	private float metros_cuadrados;
 	private Direccion direccion;
 	private int id;
+	private boolean itsPiso;
 	
 	public Piso() {
 		this.id=-1;
@@ -17,6 +18,7 @@ public class Piso {
 		this.precio_alquiler=0;
 		this.venta=false;
 		this.precio_venta=0;
+		this.itsPiso=true;
 	}
 	
 	private void setToDefault() {
@@ -27,14 +29,15 @@ public class Piso {
 		this.precio_alquiler=0;
 		this.venta=false;
 		this.precio_venta=0;
+		this.itsPiso=true;
 	}
 	
-	public Piso(int id,Direccion direccion,int metros_cuadrados,boolean alquiler,float precio_alquiler,boolean venta, float precio_venta) {
+	public Piso(int id,Direccion direccion,float metros_cuadrados,boolean alquiler,float precio_alquiler,boolean venta, float precio_venta, boolean itsPiso) {
 		boolean ok=true;
 		int cont_fails=0;
 		
 		if(alquiler==false&&venta==false) {
-			System.out.println("Los pisos deben estar en venta y/o en alquiler;");
+			System.out.println("Las propiedades deben estar en venta y/o en alquiler;");
 			ok=false;
 			cont_fails++;
 		}
@@ -49,7 +52,7 @@ public class Piso {
 			cont_fails++;
 		}
 		if(metros_cuadrados<=0) {
-			System.out.println("Los metros cuadrados deben ser 1 o más;");
+			System.out.println("Los metros cuadrados deben ser más de cero;");
 			ok=false;
 			cont_fails++;
 		}
@@ -67,7 +70,7 @@ public class Piso {
 			this.id=id;
 			this.direccion=direccion;
 			this.metros_cuadrados=metros_cuadrados;
-			
+			this.itsPiso=itsPiso;
 		}else {
 			setToDefault();
 			if(cont_fails==1)System.out.println("Se ha detectado 1 error;");
@@ -84,7 +87,7 @@ public class Piso {
 	public Direccion getDireccion() {
 		return this.direccion;
 	}
-	public int getMetrosCuadrados() {
+	public float getMetrosCuadrados() {
 		return this.metros_cuadrados;
 	}
 	public boolean getAlquiler() {
@@ -99,6 +102,9 @@ public class Piso {
 	public float getPrecioVenta() {
 		return this.precio_venta;
 	}
+	public boolean getItsPiso() {
+		return this.itsPiso;
+	}
 	
 	/*setters*/
 	
@@ -109,7 +115,7 @@ public class Piso {
 	public void setDireccion(Direccion direccion) {
 		this.direccion=direccion;
 	}
-	public void setMetrosCuadrados(int metros) {
+	public void setMetrosCuadrados(float metros) {
 		if(metros<=0)System.out.println("No se puede modificar la superficie con metros cuadrados negativos o nulos;");
 		else {
 			this.metros_cuadrados=metros;
@@ -122,7 +128,7 @@ public class Piso {
 				this.alquiler=alquiler;
 				this.precio_alquiler=-1;
 			}else {
-				System.out.println("Error, el piso debe estar en venta para eliminar el alquiler;");
+				System.out.println("Error, la propiedad debe estar en venta para eliminar el alquiler;");
 			}
 		}
 	}
@@ -134,7 +140,7 @@ public class Piso {
 				this.venta=venta;
 				this.precio_venta=-1;
 			}else {
-				System.out.println("Error, el piso debe estar en alquiler para eliminar la venta;");
+				System.out.println("Error, la propiedad debe estar en alquiler para eliminar la venta;");
 			}
 		}
 	}
@@ -151,12 +157,20 @@ public class Piso {
 		}else System.out.println("Error, el precio de alquiler no puede ser negativo;");
 	}
 	
+	public void setItsPiso(boolean itsPiso) {
+		this.itsPiso=itsPiso;
+	}
+	
 	//info completa del piso
 	public String toString() {
 		String toret="";
 		String aux="";
 		if(getId()<0) toret="Error en la lectura del piso;";
 		else {
+			String tipo="";
+			if(getItsPiso())tipo="Piso";
+			else tipo="Casa";
+			toret+="ID:"+getId()+"\nTipo de propiedad:"+tipo+";\nDireccion:\n"+getDireccion().toString(this.itsPiso)+";\nSuperficie en metros cuadrados:"+getMetrosCuadrados()+aux;
 			if(getVenta()) {
 				aux+=";\nVenta: Si";
 				aux+=";\nPrecio de Venta:"+getPrecioVenta();
@@ -166,8 +180,6 @@ public class Piso {
 				aux+=";\nAlquiler: Si";
 				aux+=";\nPrecio de Alquiler:"+getPrecioAlquiler();
 			}else aux+=";\nAlquiler: No";
-			
-			toret+="ID:"+getId()+";\nDireccion:\n"+getDireccion().toString()+";\nSuperficie en metros cuadrados:"+getMetrosCuadrados()+aux;
 		}
 		return toret;
 	}
@@ -197,7 +209,6 @@ public class Piso {
 
 	public void setVenta2(boolean ventaux) {
 		this.venta=ventaux;
-		
 	}
 	
 	

@@ -7,14 +7,15 @@ public class Agencia {
 	private static Scanner sc=new Scanner(System.in);
 	private String nombre;
 	private ArrayList<Piso> pisos;
-	private int contId=1;
+	private static int contId=1;
 	
 	//getter y setter privados del contador de IDs para no repetirlas
 	private void setContId() {
-		this.contId++;
+		contId++;
 	}
+	
 	private int getContId() {
-		return this.contId;
+		return contId;
 	}
 	
 	//constructor al que le llega un nombre y autogenera 10 pisos
@@ -41,12 +42,12 @@ public class Agencia {
 		Piso pisoaux;
 		//en alquiler
 		for(int i=1;i<6;i++) {
-			pisoaux = new Piso(i,(new Direccion(i)),i*10,true,(i*100),false,1);
+			pisoaux = new Piso(i,(new Direccion(i)),i*10,true,(i*100),false,1,true);
 			aux.add(pisoaux);
 		}
 		//en venta
 		for(int i=6;i<11;i++) {
-			pisoaux = new Piso(i,(new Direccion(i)),i*10,false,1,true,(i*100));
+			pisoaux = new Piso(i,(new Direccion(i)),i*10,false,1,true,(i*100),false);
 			aux.add(pisoaux);
 		}
 		
@@ -67,7 +68,7 @@ public class Agencia {
 	
 	//añade un nuevo piso
 	public void addNewAparment() {
-		System.out.println("Se ha generado un piso con el ID"+getContId());
+		System.out.println("Se ha generado una propiedad con el ID"+getContId());
 		Piso pisoaux=newAparment();
 		pisoaux.setId(getContId());
 		setContId();
@@ -79,21 +80,39 @@ public class Agencia {
 	private Piso newAparment() {
 		Piso pisoaux=new Piso();
 		String aux;
-		int aux1=0;
 		float aux2;
+		boolean aux3;
+		boolean itsPiso=true;
 		boolean ventaux=false;
 		boolean alquiaux=false;
 		pisoaux.setId(0);
 		
-		System.out.println("Direccion del piso:");
-		pisoaux.setDireccion(new Direccion());
+		do {
+		aux3=false;
+		System.out.println("Escriba 'piso' si es piso o 'casa' si es casa:");
+		aux=sc.nextLine();
+		aux=aux.toLowerCase();
+		if(!(aux.equals("piso")||aux.equals("casa"))) {
+			System.out.println("Tipo de propiedad desconocida. Porfavor, inténtelo de nuevo");
+			aux3=true;
+		}else {
+			if(aux.equals("piso"))itsPiso=true;
+			else if(aux.equals("casa"))itsPiso=false;
+			aux3=false;
+		}
+		}while(aux3);
+		pisoaux.setItsPiso(itsPiso);
+		
+		System.out.println("Direccion de la propiedad:");
+		pisoaux.setDireccion(new Direccion(itsPiso));
+		System.out.println();
 		
 		do {
 		System.out.println("Superficie en metros cuadrados:");
-		aux1=Integer.parseInt(sc.nextLine());
-		if(surfaceValid(aux1)==false)System.out.println("Superficie negativa o nula. Porfavor, inténtelo de nuevo");
-		}while(surfaceValid(aux1)==false);
-		pisoaux.setMetrosCuadrados(aux1);
+		aux2=Float.parseFloat(sc.nextLine());
+		if(surfaceValid(aux2)==false)System.out.println("Superficie negativa o nula. Porfavor, inténtelo de nuevo");
+		}while(surfaceValid(aux2)==false);
+		pisoaux.setMetrosCuadrados(aux2);
 		
 		do {
 		do{
@@ -143,7 +162,7 @@ public class Agencia {
 	}
 	
 	//comprueba que una superficie sea válida
-	private boolean surfaceValid(int superficie) {
+	private boolean surfaceValid(float superficie) {
 		if(superficie<=0)return false;
 		else return true;
 	}
@@ -200,7 +219,7 @@ public class Agencia {
 	//modifica la direccion de un piso a partir de su id
 	public void setAparmentAdressWithId(int id) {
 		System.out.println("Escriba la nueva dirección:");
-		this.pisos.get(getPositionOfId(id)).setDireccion(new Direccion());
+		this.pisos.get(getPositionOfId(id)).setDireccion(new Direccion(this.pisos.get(getPositionOfId(id)).getItsPiso()));
 	}
 	
 	//modifica la disponibilidad de venta de un piso
@@ -338,8 +357,8 @@ public class Agencia {
 		
 		if(pos>=0) {
 		System.out.println("Escribe la nueva superficie en metros cuadrados:");
-		int superficie=Integer.parseInt(sc.nextLine());
-		if(superficie<=0)System.out.println("Superficie inválida. Debe ser 1 o más;");
+		float superficie=Float.parseFloat(sc.nextLine());
+		if(superficie<=0)System.out.println("Superficie inválida. Debe ser más de 0;");
 		else this.pisos.get(pos).setMetrosCuadrados(superficie);
 		}
 	}
@@ -430,9 +449,9 @@ public class Agencia {
 	}
 	
 	//devuelve una Agencia auxiliar filtrada con solo los pisos entre en rango de valores de superficie
-	public Agencia OnlyBetweenSurfaces(int min, int max){
+	public Agencia OnlyBetweenSurfaces(float min, float max){
 		Agencia aux=new Agencia(this);
-		int aux2;
+		float aux2;
 		for(int i=0;i<aux.getPisos().size();i++) {
 			aux2=aux.getPisos().get(i).getMetrosCuadrados();
 			if(aux2<min||aux2>max)aux.getPisos().remove(i);
