@@ -1,0 +1,99 @@
+public class Fecha {
+	private int dia;
+	private int mes;
+	private int anho;
+	
+	
+	public Fecha() {
+		this.dia=1;
+		this.mes=1;
+		this.anho=1;
+	}
+	
+	
+	public Fecha(int dia,int mes,int anho) {
+		if(fechaCorrecta(dia,mes,anho)) {
+			this.dia=dia;
+			this.mes=mes;
+			this.anho=anho;
+		}else { 
+			System.out.println("Algún dato erroneo, se aplicarán los valores por defecto;");
+			this.dia=1;
+			this.mes=1;
+			this.anho=1;
+		}
+	}
+	
+	
+	public int getDia() {
+		return this.dia;
+	}
+	public int getMes() {
+		return this.mes;
+	}
+	public int getAnho() {
+		return this.anho;
+	}
+	public void setDia(int dia) {
+		this.dia=dia;
+	}
+	public void setMes(int mes) {
+		this.mes=mes;
+	}
+	public void setAnho(int anho) {
+		this.anho=anho;
+	}
+	
+	
+	private boolean fechaCorrecta(int dia, int mes, int anho) {
+		if(dia>31||dia<28)return false;
+		if(mes<0||mes>12)return false;
+		if(anho<0)return false;
+		
+		if(mes==2) {
+			if(bisiesto(anho)) {
+				if(dia>29)return false;
+			}else if(dia>28)return false;
+			
+		}else if(mes==4||mes==6||mes==9||mes==11){
+			if(dia>30)return false;
+		}
+		return true;
+	}
+	
+	
+	private boolean bisiesto(int anho) {
+		if(anho%400==0)return true;
+		else if(anho%100==0)return false;
+		else if(anho%4==0)return true;
+		else return false;
+	}
+	
+	public void diaSiguiente() {
+		if(getDia()>0&&getDia()<28)setDia(getDia()+1);
+		
+		else if(getMes()==4||getMes()==6||getMes()==9||getMes()==11) {
+			if(getDia()==30) {
+			setDia(1);
+			setMes(getMes()+1);
+			}else setDia(getDia()+1);
+		}else if(getMes()==2) {
+			if(bisiesto(getAnho())) {
+				if(getDia()==29) {setDia(1);setMes(3);}
+				else setDia(getDia()+1);
+			}else {
+				if(getDia()==28) {setDia(1);setMes(3);}
+				else setDia(getDia()+1);
+			}
+		}else {
+			 if(getMes()==12) {
+				if(getDia()==31) {
+				setDia(1);
+				setMes(1);
+				setAnho(getAnho()+1);
+				}else setDia(getDia()+1); 
+			}
+		}
+		
+		
+	}

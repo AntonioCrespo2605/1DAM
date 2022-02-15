@@ -36,7 +36,7 @@ public class Agencia {
 		this.nombre=agencia.nombre;
 	}
 	
-	//autogenera 10 pisos, 5 en venta y 5 en alquiler
+	//autogenera 10 propiedades, 5 en venta y 5 en alquiler
 	private ArrayList<Piso> autoGenTenAparments() {
 		ArrayList<Piso>aux=new ArrayList<Piso>();
 		Piso pisoaux;
@@ -66,7 +66,7 @@ public class Agencia {
 		return this.pisos;
 	}
 	
-	//añade un nuevo piso
+	//añade una nueva propiedad
 	public void addNewAparment() {
 		System.out.println("Se ha generado una propiedad con el ID"+getContId());
 		Piso pisoaux=newAparment();
@@ -76,7 +76,7 @@ public class Agencia {
 		
 	}
 	
-	//crea un nuevo apartamento
+	//crea una nueva propiedad
 	private Piso newAparment() {
 		Piso pisoaux=new Piso();
 		String aux;
@@ -105,7 +105,6 @@ public class Agencia {
 		
 		System.out.println("Direccion de la propiedad:");
 		pisoaux.setDireccion(new Direccion(itsPiso));
-		System.out.println();
 		
 		do {
 		System.out.println("Superficie en metros cuadrados:");
@@ -158,6 +157,7 @@ public class Agencia {
 			pisoaux.setPrecioAlquiler(aux2);
 		}else pisoaux.setPrecioAlquiler(0);
 		
+		System.out.println("Piso creado con exito;\n");
 		return pisoaux;
 	}
 	
@@ -167,7 +167,7 @@ public class Agencia {
 		else return true;
 	}
 	
-	//elimina un piso a partir de su id
+	//elimina una propiedad a partir de su id
 	public void deleteAparmentWithId(int id) {
 		int cont=0;
 		for(int i=0;i<getPisos().size();i++) {
@@ -196,7 +196,7 @@ public class Agencia {
 		else return position;
 	}
 	
-	//modificar un piso a partir de su id
+	//modificar una propiedad a partir de su id
 	public void updateAparmentWithId(int id) {
 		int position=0;
 		int cont=0;
@@ -216,13 +216,13 @@ public class Agencia {
 		}
 	}
 
-	//modifica la direccion de un piso a partir de su id
+	//modifica la direccion de una propiedad a partir de su id
 	public void setAparmentAdressWithId(int id) {
 		System.out.println("Escriba la nueva dirección:");
 		this.pisos.get(getPositionOfId(id)).setDireccion(new Direccion(this.pisos.get(getPositionOfId(id)).getItsPiso()));
 	}
 	
-	//modifica la disponibilidad de venta de un piso
+	//modifica la disponibilidad de venta de una propiedad
 	public void setOnSaleApatmentWithId(int id) {
 		String aux;
 		boolean repeat=true;
@@ -254,7 +254,30 @@ public class Agencia {
 		}
 	}
 	
-	//activar la disponibilidad de venta de un piso
+	//modifica el tipo de propiedad (piso/casa)
+	public void setType(int id) {
+		int posicion=getPositionOfId(id);
+		String op="";
+		boolean repeat=false;
+		
+		do {
+		repeat=false;
+		System.out.println("Escriba 'casa' para que la propiedad sea una casa o 'piso' para que sea un piso:");
+		op=sc.nextLine();
+		switch(op) {
+		case "casa":getPisos().get(posicion).setItsPiso(false);
+			break;
+		case "piso":getPisos().get(posicion).setItsPiso(true);
+			break;
+		default:repeat=true;
+			break;
+		}
+		}while(repeat);
+		
+		
+	}
+	
+	//activar la disponibilidad de venta de una propiedad
 	private void activarVentaDelPiso(int pos) {
 		boolean vent=this.pisos.get(pos).getVenta();
 		if(vent)System.out.println("El piso seleccionado ya está en venta;");
@@ -265,7 +288,7 @@ public class Agencia {
 		}
 	}
 	
-	//desactivar la disponibilidad de venta de un piso
+	//desactivar la disponibilidad de venta de una propiedad
 	private void desactivarVentaDelPiso(int pos) {
 		boolean alq=this.pisos.get(pos).getAlquiler();
 		if(alq==false)System.out.println("No se puede cancelar la venta de un piso si tampoco está en alquiler;");
@@ -275,7 +298,7 @@ public class Agencia {
 		}
 	}
 	
-	//modifica el precio de venta de un piso
+	//modifica el precio de venta de una propiedad
 	public void setOnSaleAparmentPriceWithId(int id) {
 		int pos=getPositionOfId(id);
 		
@@ -287,7 +310,7 @@ public class Agencia {
 		}
 	}
 	
-	//modifica la disponibilidad de alquiler de un piso
+	//modifica la disponibilidad de alquiler de una propiedad
 	public void setOnRentApatmentWithId(int id) {
 		String aux;
 		boolean repeat=true;
@@ -318,7 +341,7 @@ public class Agencia {
 		}
 	}
 	
-	//activar la disponibilidad de alquiler de un piso
+	//activar la disponibilidad de alquiler de una propiedad
 	private void activarAlquilerDelPiso(int pos) {
 		boolean alq=this.pisos.get(pos).getAlquiler();
 		if(alq)System.out.println("El piso seleccionado ya está en alquiler;");
@@ -329,7 +352,7 @@ public class Agencia {
 		}
 	}
 	
-	//desactivar la disponibilidad de alquiler de un piso
+	//desactivar la disponibilidad de alquiler de una propiedad
 	private void desactivarAlquilerDelPiso(int pos) {
 		boolean vent=this.pisos.get(pos).getVenta();
 		if(vent==false)System.out.println("No se puede cancelar el alquiler de un piso si tampoco está en venta;");
@@ -339,7 +362,7 @@ public class Agencia {
 		}
 	}
 	
-	//modifica el precio de alquiler de un piso
+	//modifica el precio de alquiler de la propiedad
 	public void setOnRentAparmentPriceWithId(int id) {
 		int pos=getPositionOfId(id);
 			
@@ -351,7 +374,7 @@ public class Agencia {
 		}
 	}
 	
-	//modifica la superficie del piso
+	//modifica la superficie de la propiedad
 	public void setSurfaceOfAparmentWithId(int id) {
 		int pos=getPositionOfId(id);
 		
@@ -428,7 +451,10 @@ public class Agencia {
 		Agencia aux=new Agencia(this);
 		float precio_min=0;
 		float precio_max=0;
+		int cont=0;
 		
+		do {
+		cont=0;
 		for(int i=0;i<aux.getPisos().size();i++) {
 			if(aux.getPisos().get(i).getAlquiler()&&aux.getPisos().get(i).getVenta()) {
 				precio_min=aux.getPisos().get(i).getPrecioAlquiler();
@@ -442,8 +468,12 @@ public class Agencia {
 				precio_min=aux.getPisos().get(i).getPrecioVenta();
 				precio_max=precio_min;
 			}
-			if((precio_min<min&&precio_max<min)||(precio_min>max&&precio_max>min))aux.getPisos().remove(i);
+			if((precio_min<min&&precio_max<min)||(precio_min>max&&precio_max>min)) {
+				aux.getPisos().remove(i);
+				cont++;
+			}
 		}
+		}while(cont>0);
 		
 		return aux;
 	}
@@ -452,10 +482,18 @@ public class Agencia {
 	public Agencia OnlyBetweenSurfaces(float min, float max){
 		Agencia aux=new Agencia(this);
 		float aux2;
+		int cont=0;
+		
+		do {
+		cont=0;
 		for(int i=0;i<aux.getPisos().size();i++) {
 			aux2=aux.getPisos().get(i).getMetrosCuadrados();
-			if(aux2<min||aux2>max)aux.getPisos().remove(i);
+			if(aux2<min||aux2>max) {
+				aux.getPisos().remove(i);
+				cont++;
+			}
 		}
+		}while(cont>0);
 			
 		return aux;
 	}
@@ -466,6 +504,41 @@ public class Agencia {
 		return toret;
 	}
 	
-	
+	//devuelve una Agencia auxiliar filtrada con solo Pisos
+	public Agencia onlyAparments() {
+		Agencia aux=new Agencia(this);
+		int cont=0;
 		
+		do {
+		cont=0;
+		for(int i=0;i<aux.getPisos().size();i++) {
+			if(aux.getPisos().get(i).getItsPiso()==false) {
+				aux.getPisos().remove(i);
+				cont++;
+			}
+		}
+		}while(cont>0);
+		
+		return aux;
+	}
+
+	//devuelve una Agencia auxiliar filtrada con solo casas
+	public Agencia onlyHouses() {
+		Agencia aux=new Agencia(this);
+		int cont=0;
+		
+		do {
+		cont=0;
+		for(int i=0;i<aux.getPisos().size();i++) {
+			if(aux.getPisos().get(i).getItsPiso()) {
+				aux.getPisos().remove(i);
+				cont++;
+			}
+		}
+		}while(cont>0);
+		
+		return aux;
+	}
+
+
 }

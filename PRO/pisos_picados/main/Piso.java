@@ -111,7 +111,6 @@ public class Piso {
 	public void setId(int id) {
 		this.id=id;
 	}
-	
 	public void setDireccion(Direccion direccion) {
 		this.direccion=direccion;
 	}
@@ -132,7 +131,6 @@ public class Piso {
 			}
 		}
 	}
-	
 	public void setVenta(boolean venta) {
 		if(venta) this.venta=venta;
 			else {
@@ -144,19 +142,16 @@ public class Piso {
 			}
 		}
 	}
-	
 	public void setPrecioVenta(float precio_venta) {
 		if(precio_venta>=0) {
 			this.precio_venta=precio_venta;
 		}else System.out.println("Error, el precio de venta no puede ser negativo;");
 	}
-	
 	public void setPrecioAlquiler(float precio_alquiler) {
 		if(precio_alquiler>=0) {
 			this.precio_alquiler=precio_alquiler;
 		}else System.out.println("Error, el precio de alquiler no puede ser negativo;");
 	}
-	
 	public void setItsPiso(boolean itsPiso) {
 		this.itsPiso=itsPiso;
 	}
@@ -214,4 +209,3 @@ public class Piso {
 	
 	
 }
-

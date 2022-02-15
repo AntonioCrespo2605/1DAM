@@ -1,0 +1,149 @@
+	//lista todos los pisos
+	public void showAllAparments() {
+		int cont=0;
+		for(int i=0;i<getPisos().size();i++) {
+			System.out.println("--------------------------------------------");
+			getPisos().get(i).toString();
+			cont++;
+			}
+		if(cont==0)System.out.println("No se han encontrado pisos en esta agencia :( ;");
+		else System.out.println("--------------------------------------------");
+		}
+	
+	//lista todos los pisos de forma corta
+	public void showAllAparmentsShort() {
+		int cont=0;
+		for(int i=0;i<getPisos().size();i++) {
+			System.out.println("--------------------------------------------");
+			getPisos().get(i).toStringShort();
+			cont++;
+			}
+		
+		if(cont==0)System.out.println("No se han encontrado pisos en esta agencia :( ;");
+		else System.out.println("--------------------------------------------");
+	}
+	
+	//lista todos los pisos en alquiler
+	public void showAllAparmentsForRent() {
+		int cont=0;
+		for(int i=0;i<getPisos().size();i++) {
+			if(getPisos().get(i).getAlquiler()) {
+				System.out.println("--------------------------------------------");
+				getPisos().get(i).toString();
+				cont++;
+				}
+		}
+		if(cont==0)System.out.println("No se han encontrado pisos en alquiler en esta agencia :( ;");
+		else System.out.println("--------------------------------------------");
+	}
+	
+	//lista todos los pisos en alquiler de forma corta
+	public void showAllAparmentsForRentShort() {
+		int cont=0;
+		for(int i=0;i<getPisos().size();i++) {
+			if(getPisos().get(i).getAlquiler()) {
+				System.out.println("--------------------------------------------");
+				getPisos().get(i).toStringShort();
+				cont++;
+				}
+		}
+		if(cont==0)System.out.println("No se han encontrado pisos en alquiler en esta agencia :( ;");
+		else System.out.println("--------------------------------------------");
+	}
+	
+	//lista todos los pisos en venta
+	public void showAllAparmentsForSale() {
+		int cont=0;
+		for(int i=0;i<getPisos().size();i++) {
+			if(getPisos().get(i).getVenta()) {
+				System.out.println("--------------------------------------------");
+				getPisos().get(i).toString();
+				cont++;
+				}
+		}
+		if(cont==0)System.out.println("No se han encontrado pisos a la venta en esta agencia :( ;");
+		else System.out.println("--------------------------------------------");
+	}
+	
+	//lista todos los pisos en venta de forma corta
+	public void showAllAparmentsForSaleShort() {
+		int cont=0;
+		for(int i=0;i<getPisos().size();i++) {
+			if(getPisos().get(i).getVenta()) {
+				System.out.println("--------------------------------------------");
+				getPisos().get(i).toStringShort();
+				cont++;
+				}
+		}
+		if(cont==0)System.out.println("No se han encontrado pisos a la venta en esta agencia :( ;");
+		else System.out.println("--------------------------------------------");
+	}
+	
+	//lista todos los pisos entre un rango de valores de precio 
+	public void showAllAparmentsBetweenPrices(float min, float max) {
+		
+		int cont=0;
+		for(int i=0;i<getPisos().size();i++) {
+			if((getPisos().get(i).getPrecioVenta()>=min&&getPisos().get(i).getPrecioVenta()<=min)||(getPisos().get(i).getPrecioAlquiler()>=min&&getPisos().get(i).getPrecioAlquiler()<=min)) {
+				System.out.println("--------------------------------------------");
+				getPisos().get(i).toString();
+				cont++;
+				}
+		}
+		
+		if(cont==0)System.out.println("No se han encontrado pisos entre"+min+" y "+max+"euros en esta agencia :( ;");
+		else System.out.println("--------------------------------------------");
+	}
+	
+	//lista todos los pisos entre un rango de valores de precio de forma corta
+	public void showAllAparmentsBetweenPricesShort(float min, float max) {
+			
+		int cont=0;
+		for(int i=0;i<getPisos().size();i++) {
+			if((getPisos().get(i).getPrecioVenta()>=min&&getPisos().get(i).getPrecioVenta()<=min)||(getPisos().get(i).getPrecioAlquiler()>=min&&getPisos().get(i).getPrecioAlquiler()<=min)) {
+				System.out.println("--------------------------------------------");
+				getPisos().get(i).toStringShort();
+				cont++;
+				}
+		}
+			
+		if(cont==0)System.out.println("No se han encontrado pisos entre"+min+" y "+max+"euros en esta agencia :( ;");
+		else System.out.println("--------------------------------------------");
+	}
+	
+	
+	//lista todos los pisos solo en venta entre un rango de valores de precio
+	public void showAllAparmentsForSaleBetweenPrices(float min, float max) {
+				
+		int cont=0;
+		for(int i=0;i<getPisos().size();i++) {
+			if(getPisos().get(i).getVenta()) {
+			if((getPisos().get(i).getPrecioVenta()>=min&&getPisos().get(i).getPrecioVenta()<=min)) {
+				System.out.println("--------------------------------------------");
+				getPisos().get(i).toString();
+				cont++;
+				}
+			}
+		}
+				
+		if(cont==0)System.out.println("No se han encontrado pisos entre"+min+" y "+max+"euros a la venta en esta agencia :( ;");
+		else System.out.println("--------------------------------------------");
+	}
+	
+	//lista todos los pisos solo en venta entre un rango de valores de precio de forma corta
+	public void showAllAparmentsForSaleBetweenPricesShort(float min, float max) {
+					
+		int cont=0;
+		for(int i=0;i<getPisos().size();i++) {
+			if(getPisos().get(i).getVenta()) {
+			if((getPisos().get(i).getPrecioVenta()>=min&&getPisos().get(i).getPrecioVenta()<=min)) {
+				System.out.println("--------------------------------------------");
+				getPisos().get(i).toStringShort();
+				cont++;
+				}
+			}
+		}
+					
+		if(cont==0)System.out.println("No se han encontrado pisos entre"+min+" y "+max+"euros a la venta en esta agencia :( ;");
+		else System.out.println("--------------------------------------------");
+	}
