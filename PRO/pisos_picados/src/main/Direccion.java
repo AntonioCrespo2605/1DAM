@@ -158,7 +158,7 @@ public class Direccion {
 		return letra;
 	}
 
-	public void setNum(char letra) {
+	public void setLetra(char letra) {
 		this.letra = letra;
 	}
 
