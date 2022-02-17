@@ -46,10 +46,12 @@ public class Agencia {
 			aux.add(pisoaux);
 		}
 		//en venta
-		for(int i=6;i<11;i++) {
+		for(int i=6;i<10;i++) {
 			pisoaux = new Piso(i,(new Direccion(i)),i*10,false,1,true,(i*100),false);
 			aux.add(pisoaux);
 		}
+		pisoaux=new Piso(10,(new Direccion(10)),100,true,1000,true,1000,true);
+		aux.add(pisoaux);
 		
 		contId=11;
 		return aux;
@@ -62,7 +64,7 @@ public class Agencia {
 	public String getNombre() {
 		return this.nombre;
 	}
-	private ArrayList<Piso> getPisos() {
+	public ArrayList<Piso> getPisos() {
 		return this.pisos;
 	}
 	
@@ -213,6 +215,8 @@ public class Agencia {
 		else {
 			Piso pisoaux=newAparment();
 			pisoaux.setId(getPisos().get(position).getId());
+			getPisos().remove(position);
+			getPisos().add(pisoaux);
 		}
 	}
 
@@ -229,12 +233,13 @@ public class Agencia {
 		int pos=getPositionOfId(id);
 		
 		if(pos>=0) {
+		do {
 		System.out.println("Para activar la venta escriba s, para desactivarla n y para cancelar c;");
 		aux=sc.nextLine();
 		aux.toLowerCase();
 		aux.trim(); 
 		
-		do {
+		
 			switch(aux) {
 			case "s":
 				activarVentaDelPiso(pos);
@@ -248,6 +253,7 @@ public class Agencia {
 				repeat=false;
 				break;
 			default:System.out.println("Opción incorrecta. Por favor inténtelo de nuevo;");
+			repeat=true;
 			break;
 			}
 		}while(repeat);
@@ -315,13 +321,14 @@ public class Agencia {
 		String aux;
 		boolean repeat=true;
 		int pos=getPositionOfId(id);
-		if(pos>=0) {	
+		if(pos>=0) {
+		do {
 		System.out.println("Para activar el alquiler escriba s, para desactivarlo n y para cancelar c;");
 		aux=sc.nextLine();
 		aux.toLowerCase();
 		aux.trim(); 
 		
-		do {
+		
 			switch(aux) {
 			case "s":
 				activarAlquilerDelPiso(pos);
@@ -335,6 +342,7 @@ public class Agencia {
 				repeat=false;
 				break;
 			default:System.out.println("Opción incorrecta. Por favor inténtelo de nuevo;");
+				repeat=true;
 			break;
 			}
 		}while(repeat);
