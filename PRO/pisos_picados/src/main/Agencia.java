@@ -17,6 +17,11 @@ public class Agencia {
 	private int getContId() {
 		return contId;
 	}
+	//constructor normal(solo usado en tests)
+	public Agencia(String nombre, ArrayList<Piso>pisos){
+		this.nombre=nombre;
+		this.pisos=pisos;
+	}
 	
 	//constructor al que le llega un nombre y autogenera 10 pisos
 	public Agencia(String nombre) {
@@ -456,6 +461,11 @@ public class Agencia {
 	
 	//devuelve una Agencia auxiliar filtrada con solo los pisos entre en rango de valores de precio
 	public Agencia OnlyBetweenPrice(float min, float max){
+		if(max<min) {
+			float aux=min;
+			min=max;
+			max=aux;
+		}
 		Agencia aux=new Agencia(this);
 		float precio_min=0;
 		float precio_max=0;
@@ -469,6 +479,8 @@ public class Agencia {
 				precio_max=aux.getPisos().get(i).getPrecioAlquiler();
 				if(aux.getPisos().get(i).getPrecioVenta()<precio_min)precio_min=aux.getPisos().get(i).getPrecioVenta();
 				if(aux.getPisos().get(i).getPrecioVenta()>precio_max)precio_max=aux.getPisos().get(i).getPrecioVenta();
+				
+				
 			}else if(aux.getPisos().get(i).getAlquiler()) {
 				precio_min=aux.getPisos().get(i).getPrecioAlquiler();
 				precio_max=precio_min;
@@ -476,7 +488,7 @@ public class Agencia {
 				precio_min=aux.getPisos().get(i).getPrecioVenta();
 				precio_max=precio_min;
 			}
-			if((precio_min<min&&precio_max<min)||(precio_min>max&&precio_max>min)) {
+			if((precio_min<min&&precio_max<min)||(precio_min>max&&precio_max>max)||(precio_min<min&&precio_max>max)) {
 				aux.getPisos().remove(i);
 				cont++;
 			}
@@ -488,6 +500,11 @@ public class Agencia {
 	
 	//devuelve una Agencia auxiliar filtrada con solo los pisos entre en rango de valores de superficie
 	public Agencia OnlyBetweenSurfaces(float min, float max){
+		if(max<min) {
+			float aux=min;
+			min=max;
+			max=aux;
+		}
 		Agencia aux=new Agencia(this);
 		float aux2;
 		int cont=0;
