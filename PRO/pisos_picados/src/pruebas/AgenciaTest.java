@@ -10,13 +10,14 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import main.Piso;
 import main.Agencia;
 import main.Direccion;
 
-class AgenciaTest {
-	Agencia agencia;
+public class AgenciaTest {
+	static Agencia agencia;
 	static Scanner sc;
 	
 	@BeforeAll
@@ -33,8 +34,9 @@ class AgenciaTest {
 		agencia=new Agencia("nombre agencia");
 	}
 	
-	@Disabled
+//	@Disabled
 	@Test
+	@Tag("anhadir")
 	void testAnhadirPropiedadYCuantasPropiedades() {
 		agencia.addNewAparment();
 		assertEquals(agencia.howManyPisos(),11);
@@ -42,6 +44,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("anhadir")
 	void testAnhadirPropiedadYCuantasPropiedadesError() {
 		agencia.addNewAparment();
 		assertNotEquals(agencia.howManyPisos(),10);
@@ -50,6 +53,7 @@ class AgenciaTest {
 	/**pasar a publico autoGenTenAparments()**/
 //	@Disabled
 //	@Test
+//	@Tag("generar")
 //	void testAutogenerar10Propiedades() {
 //		ArrayList<Piso> pisosAux =agencia.autoGenTenAparments();
 //		assertEquals(10,pisosAux.size());
@@ -58,6 +62,7 @@ class AgenciaTest {
 	
 //	@Disabled
 //	@Test
+//	@Tag("generar")
 //	void testAutogenerar10PropiedadesPorDebajoFail() {
 //		ArrayList<Piso> pisosAux =agencia.autoGenTenAparments();
 //		assertNotEquals(9,pisosAux.size());
@@ -65,6 +70,7 @@ class AgenciaTest {
 
 //	@Disabled
 //	@Test
+//	@Tag("generar")
 //	void testAutogenerar10PropiedadesPorArribaFail() {
 //		ArrayList<Piso> pisosAux =agencia.autoGenTenAparments();
 //		assertNotEquals(11,pisosAux.size());
@@ -73,6 +79,7 @@ class AgenciaTest {
 	/**pasar a publico newAparment()**/
 // 	@Disabled
 //	@Test
+//	@Tag("generar")
 //	void testCrearNuevaPropiedad() {
 //		Piso pisoAux=agencia.newAparment();
 //		assertNotNull(pisoAux);
@@ -81,12 +88,14 @@ class AgenciaTest {
 	/**pasar a publico surfaceValid**/
 //	@Disabled
 //	@Test
+//	@Tag("valores_validos")
 //	void testSuperficieValida() {
 //		assertTrue(agencia.surfaceValid(10));
 //	}
 	
 //	@Disabled
 //	@Test
+//	@Tag("valores_validos")
 //	void testSuperficieInvaliada() {
 //		assertFalse(agencia.surfaceValid(0));
 //		assertFalse(agencia.surfaceValid(-10));
@@ -95,6 +104,7 @@ class AgenciaTest {
 	/****/
 	@Disabled
 	@Test
+	@Tag("borrar")
 	void testBorrarPropiedad() {
 		agencia.deleteAparmentWithId(3);
 		assertEquals(agencia.getPisos().size(),9);
@@ -102,6 +112,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("borrar")
 	void testBorrarPropiedadFalse() {
 		agencia.deleteAparmentWithId(3);
 		assertNotEquals(agencia.getPisos().size(),10);
@@ -109,6 +120,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("obtener_pos")
 	void obtenerLaPosicionDeUnId() {
 		int actual=agencia.getPositionOfId(3);
 		assertEquals(actual,2);
@@ -116,6 +128,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("obtener_pos")
 	void obtenerLaPosicionDeUnIdFalse() {
 		int actual=agencia.getPositionOfId(3);
 		assertNotEquals(actual,3);
@@ -123,6 +136,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("modificar")
 	void testModificarDireccion() {
 		System.out.println("Test de cambiar direccion:");
 		Direccion actual = agencia.getPisos().get(agencia.getPositionOfId(5)).getDireccion();
@@ -133,6 +147,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("modificar")
 	void testModificarPropiedadEntera() {
 		Piso esperado=agencia.getPisos().get(agencia.getPositionOfId(5));
 		System.out.println(esperado.toString());
@@ -144,6 +159,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("modificar")
 	void cambiarDisponibilidadVentaAFalseConAlquilerFalse() {
 		System.out.println("En el siguiente test cambie la venta a 'n' para comprobar\nque el programa no permite hacerlo;");
 		Piso pisoaux=new Piso(13,new Direccion(11),10,false,0,true,10,false);
@@ -153,6 +169,7 @@ class AgenciaTest {
 	}
 	@Disabled
 	@Test
+	@Tag("modificar")
 	void cambiarDisponibilidadVentaAFalseConAlquilerTrue() {
 		System.out.println("En el siguiente test cambie la venta a 'n' para comprobar\nque el programa si permite hacerlo;");
 		Piso pisoaux=new Piso(13,new Direccion(11),10,true,10,true,10,false);
@@ -163,6 +180,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("modificar")
 	void cambiarDisponibilidadVentaATrue() {
 		System.out.println("En el siguiente test cambie la venta a 's';");
 		Piso pisoaux=new Piso(13,new Direccion(11),10,true,10,false,10,false);
@@ -173,6 +191,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("modificar")
 	void cambiarDisponibilidadAlquilerAFalseConVentaFalse() {
 		System.out.println("En el siguiente test cambie el alquiler a 'n' para comprobar\nque no deja cambiarlo;");
 		Piso pisoaux=new Piso(13,new Direccion(11),10,true,10,false,10,false);
@@ -183,6 +202,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("modificar")
 	void cambiarDisponibilidadAlquilerAFalseConVentaTrue() {
 		System.out.println("En el siguiente test cambie el alquiler a 'n' para comprobar\nque si deja cambiarlo;");
 		Piso pisoaux=new Piso(13,new Direccion(11),10,true,10,true,10,false);
@@ -193,6 +213,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("modificar")
 	void cambiarDisponibilidadAlquilerATrue() {
 		System.out.println("En el siguiente test cambie el alquiler a 's';");
 		Piso pisoaux=new Piso(13,new Direccion(11),10,false,10,true,10,false);
@@ -203,6 +224,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("modificar")
 	void modificarPrecioVentaPropiedad() {
 		System.out.println("Escribe el esperado y al cambiar el precio de venta ponga el mismo número para comprobar que se cambia completamente(float format:0.0);");
 		System.out.println("No introducir precio negativo ya que dará error debido a que no lo cambiará");
@@ -216,6 +238,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("modificar")
 	void modificarPrecioVentaPropiedadFalse() {
 		System.out.println("Escribe el esperado y al cambiar el precio de venta ponga uno DISTINTO para comprobar que se cambia completamente(float format:0.0);");
 		System.out.println("No introducir precio negativo ya que dará error debido a que no lo cambiará;");
@@ -229,6 +252,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("modificar")
 	void modificarPrecioAlquilerPropiedad() {
 		System.out.println("Escribe el esperado y al cambiar el precio de alquiler ponga el mismo número para comprobar que se cambia completamente(float format:0.0);");
 		System.out.println("No introducir precio negativo ya que dará error debido a que no lo cambiará;");
@@ -242,6 +266,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("modificar")
 	void modificarSuperficie() {
 		System.out.println("Escribe la superficie esperada y al cambiarla ponga el mismo número para comprobar que se cambia completamente(float format:0.0);");
 		System.out.println("No introducir superficies negativas ni nulas ya que dará error debido a que no lo cambiará;");
@@ -255,6 +280,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("filtrar")
 	void filtrarSoloPropiedadesEnVenta() {
 		String nombre="agenciaName";
 		Piso pisoConVenta1=new Piso(1,new Direccion(1),10,false,0,true,10,false);
@@ -274,6 +300,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("filtrar")
 	void filtrarSoloPropiedadesEnAlquiler() {
 		String nombre="agenciaName";
 		Piso pisoConVenta1=new Piso(1,new Direccion(1),10,false,0,true,10,false);
@@ -293,6 +320,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("filtrar")
 	void filtrarSoloPropiedadesEntrePrecios() {
 		String nombre="agenciaName";
 		Piso piso1=new Piso(1,new Direccion(1),10,true,100,true,1000,false);//s
@@ -320,6 +348,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("filtrar")
 	void filtrarSoloPropiedadesEntreSuperficies() {
 		String nombre="agenciaName";
 		Piso piso1=new Piso(1,new Direccion(1),220,true,100,true,1000,false);//s
@@ -346,6 +375,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("filtrar")
 	void filtrarSoloPisos() {
 		String nombre="agenciaName";
 		Piso piso1=new Piso(1,new Direccion(1),220,true,100,true,1000,true);//s
@@ -371,6 +401,7 @@ class AgenciaTest {
 	
 	@Disabled
 	@Test
+	@Tag("filtrar")
 	void filtrarSoloCasas() {
 		String nombre="agenciaName";
 		Piso piso1=new Piso(1,new Direccion(1),220,true,100,true,1000,true);//n

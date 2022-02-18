@@ -423,6 +423,20 @@ public class Agencia {
 			if(cont==0)System.out.println("No se han encontrado pisos en esta agencia :( ;");
 			else System.out.println("-------------------------------------------------------------------------------------------");
 		}
+	
+	//lista solo los IDs
+	public void showAllAparmentsVeryShort() {
+		int cont=0;
+		System.out.println("\n-------------------------------------------------------------------------------------------");
+		for(int i=0;i<getPisos().size();i++) {
+			if(getPisos().size()-i==1)System.out.print(getPisos().get(i).toStringVeryShort()+".");
+			else System.out.print(getPisos().get(i).toStringVeryShort()+",");
+			cont++;
+			}
+		System.out.println();
+		if(cont==0)System.out.println("No se han encontrado pisos en esta agencia :( ;");
+		else System.out.println("-------------------------------------------------------------------------------------------");
+	}
 		
 	//devuelve una Agencia auxiliar filtrada con solo los pisos a la venta de la que le llega
 	public Agencia OnlyForSale(){

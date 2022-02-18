@@ -196,6 +196,14 @@ public class Piso {
 		}
 		return toret;
 	}
+	
+	//muestra solo el ID
+	public String toStringVeryShort() {
+		String toret="";
+		if(getId()<0)System.out.println("Error en la lectura del piso;");
+		else toret="Id:"+getId();
+		return toret;
+	}
 
 	//para que no de problemas al generar alquileres y ventas en los nuevos pisos
 	public void setAlquiler2(boolean alquiaux) {

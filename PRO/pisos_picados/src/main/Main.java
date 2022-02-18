@@ -136,6 +136,8 @@ public class Main {
 		boolean todok = false;
 
 		do {
+			System.out.print("Propiedades disponibles :");
+			agencia.showAllAparmentsVeryShort();
 			System.out.println("Escriba el ID de la propiedad a modificar;\nPara cancelar escriba c;");
 			op = sc.nextLine();
 			op.trim();
@@ -156,6 +158,7 @@ public class Main {
 
 		if (!op.equals("c")) {
 			do {
+				
 				todok = true;
 				System.out.println("Elija una opcion :\n1-Modificar todos los atributos de la propiedad;"
 						+ "\n2-SALIR del modo de modificación;" + "\n3-Modificar la dirección de la propiedad;"
@@ -206,6 +209,8 @@ public class Main {
 	}
 
 	public static void deleteAparment() {
+		System.out.print("Propiedades disponibles :");
+		agencia.showAllAparmentsVeryShort();
 		String option;
 		int idaux;
 		System.out.println("Introduzca el ID de la propiedad que quiere BORRAR o pulse c para CANCELAR:");
