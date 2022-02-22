@@ -1,0 +1,79 @@
+public class Cuenta {
+	private String nomCliente;
+	private String numCuenta;
+	private double interes;
+	private double saldo;
+	
+	//constructor por defecto
+	public Cuenta() {
+		this.nomCliente="";
+		this.numCuenta="";
+		this.interes=0;
+		this.saldo=0;
+	}
+	
+	//contructor con parámetros
+	public Cuenta(String nomCliente,String numCuenta,double interes,double saldo) {
+		this.nomCliente=nomCliente;
+		this.numCuenta=numCuenta;
+		this.interes=interes;
+		this.saldo=saldo;
+	}
+	
+	//constructor copia
+	public Cuenta(Cuenta cuenta) {
+		this.nomCliente=cuenta.getNomCliente();
+		this.numCuenta=cuenta.getNumCuenta();
+		this.interes=cuenta.getInteres();
+		this.saldo=cuenta.getSaldo();
+	}
+	
+	public String getNomCliente() {
+		return this.nomCliente;
+	}
+	public void setNomCliente(String nomCliente) {
+		this.nomCliente=nomCliente;
+	}
+	public String getNumCuenta() {
+		return this.numCuenta;
+	}
+	public void setNumCuenta(String numCuenta) {
+		this.numCuenta=numCuenta;
+	}
+	public double getInteres() {
+		return this.interes;
+	}
+	public void setInteres(double interes) {
+		this.interes=interes;
+	}
+	public double getSaldo() {
+		return this.saldo;
+	}
+	public void setSaldo(double saldo) {
+		this.saldo=saldo;
+	}
+	
+	//ingreso y reintegro
+	public boolean saldoIngresoPermitido(double num) {
+		if(num<0) return false;
+		else return true;
+	}
+	
+	public boolean saldoReintegroPermitido(double num,Cuenta cuenta) {
+		if(num<0||num>this.saldo)return false;
+		else return false;
+	}
+	
+	//transferencia
+	public void transferencia(Cuenta cuentaDestino, double importe) {
+		if(this.saldo>=importe) {
+			this.saldo=this.saldo-importe;
+			cuentaDestino.saldo=cuentaDestino.saldo+importe;
+		}
+	}
+	
+	//toString
+	public String toString() {
+		return "La cuenta de "+getNomCliente()+" con el número "+getNumCuenta()+" tiene "+ getInteres()+" intereses y un saldo de "+getSaldo()+" euros.";
+	}
+}
