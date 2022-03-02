@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE albumes SYSTEM "albumes.dtd">
+<albumes>
+	<album id="1">
+		<titulo>Thriller</titulo>
+		<artista>Michael Jackson</artista>
+		<discografica>Epic Records</discografica>
+		<productor>Quincy Jones</productor>
+		<num_canciones>4</num_canciones>
+		<duracion>00:42:19</duracion>
+		<fecha_pub>1982-11-30</fecha_pub>
+		<genero>pop</genero>
+		<genero>rock</genero>
+		<precio>25000</precio>
+		<url_caratula>https://es.wikipedia.org/wiki/Thriller_(%C3%A1lbum)</url_caratula>
+		<canciones>
+			<cancion pos="1">
+				<titulo>Thriller</titulo>
+				<duracion>00:05:58</duracion>
+				<letrista>Rod Temperton</letrista>
+			</cancion>
+			<cancion pos="2">
+				<titulo>Beat It</titulo>
+				<duracion>00:04:18</duracion>
+				<letrista>Michael Jackson</letrista>
+			</cancion>
+			<cancion pos="3">
+				<titulo>Billie Jean</titulo>
+				<duracion>00:04:54</duracion>
+				<letrista>Michael Jackson</letrista>
+			</cancion>
+			<cancion pos="4">
+				<titulo>Wanna Be Startin' Somethin'</titulo>
+				<duracion>00:06:03</duracion>
+				<letrista>Michael Jackson</letrista>
+			</cancion>
+		</canciones>
+		<formato>Vinilo</formato>
+		<formato>DVD</formato>
+	</album>
+
+
+</albumes>

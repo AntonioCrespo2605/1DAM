@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd = "http://www.w3.org/2001/XMLSchema">
+
+<!-- Definición de tipos: -->
+
+<xsd:element name="albumes">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element ref="album" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="album">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="titulo" type="xsd:string"/>
+			<xsd:choice>
+				<xsd:element name="artista" type="xsd:string"/>
+				<xsd:element name="grupo" type="xsd:string"/>
+			</xsd:choice>
+			<xsd:element name="discografica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="productor" type="xsd:string" maxOccurs="unbounded"/>
+			<xsd:element name="num_canciones" type="xsd:positiveInteger"/>
+			<xsd:element name="duracion" type="xsd:time"/>
+			<xsd:element name="fecha_pub" type="xsd:date"/>
+			<xsd:element name="genero" type="xsd:string" maxOccurs="unbounded"/>
+			<xsd:element name="precio" type="xsd:double"/>
+			<xsd:element name="url_caratula" type="xsd:string" minOccurs="0"/>
+			<xsd:element ref="canciones"/>
+			<xsd:element name="formato" type="tipoFormato"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:simpleType name="tipoFormato">
+	<xsd:restriction base="xsd:string">
+		<xsd:enumeration value="Vinilo"/>
+		<xsd:enumeration value="DVD"/>
+		<xsd:enumeration value="CD"/>
+		<xsd:enumeration value="Digital"/>
+ 	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:element name="canciones">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element ref="cancion" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="cancion">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="titulo" type="xsd:string"/>
+			<xsd:element name="duracion" type="xsd:time"/>
+			<xsd:element name="artista_colabo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="grupo_colabo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="letrista" type="xsd:string" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+</xsd:schema>

@@ -1,0 +1,28 @@
+<!-- Elementos de albumes -->
+<!ELEMENT albumes (album+)>
+
+<!-- Elementos de album -->
+<!ELEMENT album (titulo, (artista | grupo), discografica?, productor+, num_canciones, duracion, fecha_pub, genero+, precio, url_caratula?, canciones, formato+)>
+<!ATTLIST album id ID #REQUIRED>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT artista (#PCDATA)>
+<!ELEMENT grupo (#PCDATA)>
+<!ELEMENT productor (#PCDATA)>
+<!ELEMENT num_canciones (#PCDATA)>
+<!ELEMENT duracion (#PCDATA)>
+<!ELEMENT fecha_pub (#PCDATA)>
+<!ELEMENT genero (#PCDATA)>
+<!ELEMENT precio (#PCDATA)>
+<!ELEMENT url_caratula (#PCDATA)>
+<!ELEMENT discografica (#PCDATA)>
+<!ELEMENT formato (#PCDATA)>
+
+<!-- Elementos de canciones -->
+<!ELEMENT canciones (cancion+)>
+
+<!-- Elementos de cancion -->
+<!ELEMENT cancion (titulo , duracion , artista_colabo*, grupo_colabo*, letrista+)>
+<!ATTLIST cancion pos ID #REQUIRED>
+<!ELEMENT artista_colabo (#PCDATA)>
+<!ELEMENT grupo_colabo (#PCDATA)>
+<!ELEMENT letrista (#PCDATA)>
