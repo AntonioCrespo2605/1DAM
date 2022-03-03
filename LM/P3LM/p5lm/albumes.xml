@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE albumes SYSTEM "albumes.dtd">
+	<albumes>
+<!--<albumes xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="albumes./albumes.xsd">-->
+	<album id="a1">
+		<titulo>Thriller</titulo>
+		<artista>Michael Jackson</artista>
+		<discografica>Epic Records</discografica>
+		<productor>Quincy Jones</productor>
+		<num_canciones>4</num_canciones>
+		<duracion>00:42:19</duracion>
+		<fecha_pub>1982-11-30</fecha_pub>
+		<genero>pop</genero>
+		<genero>rock</genero>
+		<precio>12.37</precio>
+		<url_caratula>https://es.wikipedia.org/wiki/Thriller_(%C3%A1lbum)</url_caratula>
+		<canciones>
+			<cancion pos="c1">
+				<titulo>Thriller</titulo>
+				<duracion>00:05:58</duracion>
+				<letrista>Rod Temperton</letrista>
+			</cancion>
+			<cancion pos="c2">
+				<titulo>Beat It</titulo>
+				<duracion>00:04:18</duracion>
+				<letrista>Michael Jackson</letrista>
+			</cancion>
+			<cancion pos="c3">
+				<titulo>Billie Jean</titulo>
+				<duracion>00:04:54</duracion>
+				<letrista>Michael Jackson</letrista>
+			</cancion>
+			<cancion pos="c4">
+				<titulo>Wanna Be Startin' Somethin'</titulo>
+				<duracion>00:06:03</duracion>
+				<letrista>Michael Jackson</letrista>
+			</cancion>
+		</canciones>
+		<formato>Vinilo</formato>
+		<formato>DVD</formato>
+	</album>
+	
+	<album id="a2">
+		<titulo>The Dark Side of the Moon</titulo>
+		<grupo>Pink Floyd</grupo>
+		<discografica>Harvest Records</discografica>
+		<productor>Pink Floyd</productor>
+		<num_canciones>9</num_canciones>
+		<duracion>00:42:59</duracion>
+		<fecha_pub>1973-03-01</fecha_pub>
+		<genero>rock progresivo</genero>
+		<genero>art rock</genero>
+		<precio>5.13</precio>
+		<url_caratula>https://es.wikipedia.org/wiki/The_Dark_Side_of_the_Moon</url_caratula>
+		<canciones>
+			<cancion pos="a2c1">
+				<titulo>Speak to me</titulo>
+				<duracion>00:01:07</duracion>
+				<letrista>Nick Mason</letrista>
+			</cancion>
+			<cancion pos="a2c2">
+				<titulo>Breathe</titulo>
+				<duracion>00:02:49</duracion>
+				<letrista>Roger Waters</letrista>
+				<letrista>David Gilmour</letrista>
+				<letrista>Richard Wright</letrista>
+			</cancion>
+			<cancion pos="a2c3">
+				<titulo>On the run</titulo>
+				<duracion>00:03:50</duracion>
+				<letrista>Roger Waters</letrista>
+				<letrista>David Gilmour</letrista>
+			</cancion>
+		</canciones>
+		<formato>CD</formato>
+		<formato>Vinilo</formato>
+	</album>
+
+	<album id="a3">
+		<titulo>Back in Black</titulo>
+		<grupo>AC/DC</grupo>
+		<discografica>Atco Records</discografica>
+		<productor>Robert Lange</productor>
+		<num_canciones>10</num_canciones>
+		<duracion>00:42:11</duracion>
+		<fecha_pub>1980-06-25</fecha_pub>
+		<genero>Hard rock</genero>
+		<genero>Heavy Metal</genero>
+		<genero>Arena Rock</genero>
+		<precio>7.99</precio>
+		<canciones>
+			<cancion pos="a3c1">
+				<titulo>Speak to me</titulo>
+				<duracion>00:01:07</duracion>
+				<letrista>Nick Mason</letrista>
+			</cancion>
+			<cancion pos="a3c2">
+				<titulo>Breathe</titulo>
+				<duracion>2:49</duracion>
+				<letrista>Roger Waters</letrista>
+				<letrista>David Gilmour</letrista>
+				<letrista>Richard Wright</letrista>
+			</cancion>
+			<cancion pos="a3c3">
+				<titulo>On the run</titulo>
+				<duracion>00:03:50</duracion>
+				<letrista>Roger Waters</letrista>
+				<letrista>David Gilmour</letrista>
+			</cancion>
+		</canciones>
+		<formato>CD</formato>
+		<formato>Vinilo</formato>
+	</album>
+
+	<album id="a4">
+		<titulo>Come On Over</titulo>
+		<artista>Shania Twain</artista>
+		<discografica>Mercury Records</discografica>
+		<productor>Robert Lange</productor>
+		<num_canciones>12</num_canciones>
+		<duracion>00:60:26</duracion>
+		<fecha_pub>1997-11-04</fecha_pub>
+		<genero>Pop Rock</genero>
+		<genero>County Pop</genero>
+		<genero>Rock</genero>
+		<precio>1.99</precio>
+		<canciones>
+			<cancion pos="a4c1">
+				<titulo>Love Gets Me Every Time</titulo>
+				<duracion>00:03:33</duracion>
+				<letrista>Shania Twain</letrista>
+				<letrista>Robert Lange</letrista>
+			</cancion>
+			<cancion pos="a4c2">
+				<titulo>Don´t Be Stupid (You know I Love You)</titulo>
+				<duracion>00:03:34</duracion>
+				<letrista>Shania Twain</letrista>
+				<letrista>Robert Lange</letrista>
+			</cancion>
+			<cancion pos="a4c3">
+				<titulo>You´re Still the One</titulo>
+				<duracion>00:03:34</duracion>
+				<letrista>Shania Twain</letrista>
+			</cancion>
+			<cancion pos="a4c4">
+				<titulo>When</titulo>
+				<duracion>00:03:39</duracion>
+				<letrista>Shania Twain</letrista>
+				<letrista>Robert Lange</letrista>
+			</cancion>
+		</canciones>
+		<formato>Digital</formato>
+		<formato>CD</formato>
+	</album>
+
+	<album id="a5">
+		<titulo></titulo>
+		<artista></artista>
+		<discografica></discografica>
+		<productor></productor>
+		<num_canciones></num_canciones>
+		<duracion></duracion>
+		<fecha_pub></fecha_pub>
+		<genero></genero>
+		<genero></genero>
+		<genero></genero>
+		<precio></precio>
+		<canciones>
+			<cancion pos="a5c1">
+				<titulo></titulo>
+				<duracion></duracion>
+				<letrista></letrista>
+				<letrista></letrista>
+			</cancion>
+			<cancion pos="a5c2">
+				<titulo></titulo>
+				<duracion></duracion>
+				<letrista></letrista>
+				<letrista></letrista>
+			</cancion>
+			<cancion pos="a5c3">
+				<titulo></titulo>
+				<duracion></duracion>
+				<letrista></letrista>
+			</cancion>
+			<cancion pos="a5c4">
+				<titulo></titulo>
+				<duracion></duracion>
+				<letrista></letrista>
+				<letrista></letrista>
+			</cancion>
+		</canciones>
+		<formato></formato>
+		<formato></formato>
+	</album>
+
+</albumes>

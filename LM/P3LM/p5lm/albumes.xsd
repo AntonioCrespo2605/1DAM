@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd = "http://www.w3.org/2001/XMLSchema">
 
-<!-- Definición de tipos: -->
-
 <xsd:element name="albumes">
 	<xsd:complexType>
 		<xsd:sequence>
@@ -23,9 +21,22 @@
 			<xsd:element name="productor" type="xsd:string" maxOccurs="unbounded"/>
 			<xsd:element name="num_canciones" type="xsd:positiveInteger"/>
 			<xsd:element name="duracion" type="xsd:time"/>
-			<xsd:element name="fecha_pub" type="xsd:date"/>
+			<xsd:element name="fecha_pub">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:date">
+						<xsd:maxInclusive value="2022-12-31"/>
+						<xsd:minInclusive value="1700-01-01"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
 			<xsd:element name="genero" type="xsd:string" maxOccurs="unbounded"/>
-			<xsd:element name="precio" type="xsd:double"/>
+			<xsd:element name="precio">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:double">
+						<xsd:minInclusive value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
 			<xsd:element name="url_caratula" type="xsd:string" minOccurs="0"/>
 			<xsd:element ref="canciones"/>
 			<xsd:element name="formato" type="tipoFormato"/>
