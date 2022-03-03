@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd = "http://www.w3.org/2001/XMLSchema">
+
+<!--facturas-->
+<xsd:element name="facturas">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element ref="factura" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<!--factura-->
+<xsd:element name="factura">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element ref="datos_cliente"/>
+			<xsd:element ref="datos_tiket"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+<!--===========================-->
+<!--datos_cliente-->
+<xsd:element name="datos_cliente">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="nombre" type="xsd:string"/>
+			<xsd:element name="ape1" type="xsd:string"/>
+			<xsd:element name="ape2" type="xsd:string"/>
+			<xsd:element ref="dni"/>
+			<xsd:element name="telefono" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<!--datos dni-->
+<xsd:element name="dni">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="nif" type="TipoNif"/>
+			<xsd:element name="letra" type="character"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<!--tipo Character-->
+<xsd:simpleType name="character">
+	<xsd:restriction base="xsd:string">
+		<xsd:length fixed="true" value="1"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<!--tipo Nif-->
+<xsd:simpleType name="TipoNif">
+	<xsd:restriction base="xsd:string">
+		<xsd:length value="8"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<!--===========================-->
+<!--datos_tiket-->
+<xsd:element name="datos_tiket">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element ref="resguardo"/>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element ref="alquiler"/>
+				<xsd:element ref="compra"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<!--resguardo-->
+<xsd:element name="resguardo">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="forma_pago" type="xsd:string"/>
+			<xsd:element name="importe_total" type="doublePos"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:simpleType name="doublePos">
+	<xsd:restriction base="xsd:double">
+		<xsd:minInclusive value="0"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<!--alquiler-->
+<xsd:element name="alquiler">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element ref="peli" maxOccurs="unbounded"/>
+			<xsd:element name="fecha_dev" type="xsd:date"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+</xsd:schema>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd = "http://www.w3.org/2001/XMLSchema">
+
+<!--personas-->
+<xsd:element name="personas">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element ref="persona" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<!--persona-->
+<xsd:element name="persona">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="nombre" type="tipoMenosDe50"/>
+			<xsd:element ref="fecha_nac" minOccurs="0"/>
+			<xsd:element ref="direccion" maxOccurs="unbounded"/>
+			<xsd:choice>
+				<xsd:element name="varon"/>
+				<xsd:element name="hembra"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<!--fecha_nac-->
+<xsd:element name="fecha_nac">
+	<xsd:complexType>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="dia" type="tipoDia"/>
+				<xsd:attribute name="mes" type="tipoMes"/>
+				<xsd:attribute name="anho" type="tipoAnho"/> 
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+</xsd:element> 
+<!--direccion-->
+<xsd:element name="direccion">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="calle" type="tipoMenosDe50"/>
+			<xsd:element name="poblacion" type="tipoMenosDe50"/>
+			<xsd:element name="provincia" type="tipoMenosDe50"/>
+			<xsd:element name="cpostal" type="tipoCPostal"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+
+<!--===============================================================-->
+<!--tipos-->
+ <xsd:simpleType name="tipoMenosDe50">
+	 <xsd:restriction base="xsd:string">
+ 		<xsd:maxLength value="50"/>
+ 	</xsd:restriction>
+ </xsd:simpleType>
+
+<!--para fecha-->
+<xsd:simpleType name="tipoDia">
+	<xsd:restriction base="xsd:positiveInteger">
+	<xsd:minInclusive value="1"/>
+	<xsd:maxInclusive value="31"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="tipoMes">
+	<xsd:restriction base="xsd:string">
+		<xsd:enumeration value="Enero"/>
+		<xsd:enumeration value="Febrero"/>
+		<xsd:enumeration value="Marzo"/>
+		<xsd:enumeration value="Abril"/>
+		<xsd:enumeration value="Mayo"/>
+		<xsd:enumeration value="Junio"/>
+		<xsd:enumeration value="Julio"/>
+		<xsd:enumeration value="Agosto"/>
+		<xsd:enumeration value="Septiembre"/>
+		<xsd:enumeration value="Octubre"/>
+		<xsd:enumeration value="Noviembre"/>
+		<xsd:enumeration value="Diciembre"/>
+	</xsd:restriction>
+</xsd:simpleType> 
+
+ <xsd:simpleType name="tipoAnho">
+ 	<xsd:restriction base="xsd:positiveInteger">
+ 		<xsd:minInclusive value="1900"/>
+ 		<xsd:maxInclusive value="2011"/>
+ 	</xsd:restriction>
+ </xsd:simpleType>  
+
+<!--para CP-->
+<xsd:simpleType name="tipoCPostal">
+	<xsd:restriction base="xsd:positiveInteger">
+		<xsd:totalDigits value="5"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+</xsd:schema>
