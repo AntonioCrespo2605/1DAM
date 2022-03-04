@@ -30,6 +30,7 @@
 			<xsd:element ref="dni"/>
 			<xsd:element name="telefono" type="xsd:string"/>
 		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:ID"/>
 	</xsd:complexType>
 </xsd:element>
 
@@ -93,6 +94,64 @@
 		<xsd:sequence>
 			<xsd:element ref="peli" maxOccurs="unbounded"/>
 			<xsd:element name="fecha_dev" type="xsd:date"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<!--peli-->
+<xsd:element name="peli">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="titulo" type="xsd:string"/>
+			<xsd:element name="genero" type="xsd:string"/>
+			<xsd:element name="duracion" type="xsd:time"/>
+			<xsd:element ref="actor" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<!--actores-->
+<xsd:element name="actor">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="nombre" type="xsd:string"/>
+			<xsd:element name="ape1" type="xsd:string"/>
+			<xsd:element name="ape2" type="xsd:string"/>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:ID"/>
+		<xsd:attribute name="valoracion" type="xsd:string"/>
+	</xsd:complexType>
+</xsd:element>
+
+<!--compra-->
+<xsd:element name="compra">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element ref="cinta_video"/>
+				<xsd:element ref="dvd"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<!--cinta_video-->
+<xsd:element name="cinta_video">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="formato" type="xsd:string"/>
+			<xsd:element name="rebobinacion" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<!--dvd-->
+<xsd:element name="dvd">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="titulo" type="xsd:string"/>
+			<xsd:element name="fecha_salida" type="xsd:date"/>
+			<xsd:element name="extras" type="xsd:boolean"/>
 		</xsd:sequence>
 	</xsd:complexType>
 </xsd:element>
