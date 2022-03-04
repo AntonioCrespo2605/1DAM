@@ -39,7 +39,7 @@
 			</xsd:element>
 			<xsd:element name="url_caratula" type="xsd:string" minOccurs="0"/>
 			<xsd:element ref="canciones"/>
-			<xsd:element name="formato" type="tipoFormato"/>
+			<xsd:element name="formato" type="tipoFormato" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="id" type="xsd:ID"/>
 	</xsd:complexType>

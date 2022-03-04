@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE albumes SYSTEM "albumes.dtd">
+<!--<!DOCTYPE albumes SYSTEM "albumes.dtd">-->
 	<!--<albumes>-->
-<albumes xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="albumes./albumes.xsd">
+<albumes xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="./albumes.xsd">
 	<album id="a1">
 		<titulo>Thriller</titulo>
 		<artista>Michael Jackson</artista>
@@ -96,7 +96,7 @@
 			</cancion>
 			<cancion pos="a3c2">
 				<titulo>Breathe</titulo>
-				<duracion>2:49</duracion>
+				<duracion>00:02:49</duracion>
 				<letrista>Roger Waters</letrista>
 				<letrista>David Gilmour</letrista>
 				<letrista>Richard Wright</letrista>
@@ -118,7 +118,7 @@
 		<discografica>Mercury Records</discografica>
 		<productor>Robert Lange</productor>
 		<num_canciones>12</num_canciones>
-		<duracion>00:60:26</duracion>
+		<duracion>00:06:26</duracion>
 		<fecha_pub>1997-11-04</fecha_pub>
 		<genero>Pop Rock</genero>
 		<genero>County Pop</genero>
