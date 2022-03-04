@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facturas xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
+ xsd:noNamespaceSchemaLocation="5.xsd">
+<factura>
+	<datos_cliente id="c1">
+		<nombre>Nombre1</nombre>
+		<ape1>Ape1</ape1>
+		<ape2>Ape2</ape2>
+		<dni>
+			<nif>11111111</nif>
+			<letra>A</letra>
+		</dni>
+		<telefono>912912912</telefono>
+	</datos_cliente>
+		
+	<datos_tiket>
+		<resguardo>
+			<forma_pago>efectivo</forma_pago>
+			<importe_total>50</importe_total>
+		</resguardo>
+		<alquiler>
+			<peli id="a" valoracion="buena">
+				<titulo>Spiderman</titulo>
+				<genero>ficcion</genero>
+				<duracion>02:35:21</duracion>
+				<actor>
+					<nombre>Tom</nombre>
+					<ape1>Holland</ape1>
+					<ape2>Peter 1</ape2>
+				</actor>
+				<actor>
+					<nombre>Tobey</nombre>
+					<ape1>Maguire</ape1>
+					<ape2>Peter 2</ape2>
+				</actor>
+				<actor>
+					<nombre>Andrew</nombre>
+					<ape1>Garfield</ape1>
+					<ape2>Peter 3</ape2>
+				</actor>
+			</peli>
+
+			<peli id="b" valoracion="cabían los 2 en la tabla">
+				<titulo>Titanic</titulo>
+				<genero>cubitos de hielo</genero>
+				<duracion>04:12:21</duracion>
+				<actor>
+					<nombre>Leonardo</nombre>
+					<ape1>Di</ape1>
+					<ape2>Caprio</ape2>
+				</actor>
+				<actor>
+					<nombre>Kate</nombre>
+					<ape1>Winslet</ape1>
+					<ape2>Rose</ape2>
+				</actor>
+				<actor>
+					<nombre>She</nombre>
+					<ape1>Uhn</ape1>
+					<ape2>Dioh</ape2>
+				</actor>
+			</peli>
+			<fecha_dev>2022-03-22</fecha_dev>
+		</alquiler>
+	</datos_tiket>
+</factura>
+	
+<factura>
+	<datos_cliente id="c2">
+		<nombre>Nombre2</nombre>
+		<ape1>Ape12</ape1>
+		<ape2>Ape22</ape2>
+		<dni>
+			<nif>22222222</nif>
+			<letra>B</letra>
+		</dni>
+		<telefono>911111111</telefono>
+	</datos_cliente>
+	
+	<datos_tiket>
+		<resguardo>
+			<forma_pago>targeta</forma_pago>
+			<importe_total>12.32</importe_total>
+		</resguardo>
+		<compra>
+			<cinta_video>
+				<formato>CD</formato>
+				<rebobinacion>true</rebobinacion>
+			</cinta_video>
+			<dvd>
+				<titulo>The Batman</titulo>
+				<fecha_salida>2022-02-01</fecha_salida>
+				<extras>false</extras>
+			</dvd>
+		</compra>
+		<alquiler>
+			<peli id="c" valoracion="no se">
+				<titulo>Me da palo pensar</titulo>
+				<genero>pereza</genero>
+				<duracion>00:00:01</duracion>
+				<actor>
+					<nombre>nom</nombre>
+					<ape1>ape</ape1>
+					<ape2>ape2</ape2>
+				</actor>
+				<actor>
+					<nombre>nom</nombre>
+					<ape1>ape</ape1>
+					<ape2>ape2</ape2>
+				</actor>
+				<actor>
+					<nombre>nom</nombre>
+					<ape1>ape</ape1>
+					<ape2>ape2</ape2>
+				</actor>
+			</peli>
+			<fecha_dev>2123-03-31</fecha_dev>
+		</alquiler>
+	</datos_tiket>
+</factura>
+
+</facturas>

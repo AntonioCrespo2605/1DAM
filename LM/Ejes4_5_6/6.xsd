@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd = "http://www.w3.org/2001/XMLSchema">
+
+<xsd:element name="pelis">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element ref="peli" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="peli">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="titulo" type="xsd:string"/>
+			<xsd:element name="titulo_original" type="xsd:string" minOccurs="0"/>
+			<xsd:element ref="clasificacion" minOccurs="0"/>
+			<xsd:element name="fichero_grafico" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="anho" type="xsd:gYear" default="2003"/>
+			<xsd:element ref="reparto"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="clasificacion">
+	<xsd:simpleType>
+		<xsd:restriction base="xsd:positiveInteger">
+			<xsd:enumeration value="8"/>
+			<xsd:enumeration value="12"/>
+			<xsd:enumeration value="16"/>
+			<xsd:enumeration value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:element>
+
+<xsd:element name="reparto">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="actor" type="xsd:string" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+</xsd:schema>

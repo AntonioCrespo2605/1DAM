@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pelis xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="6.xsd">
+	<peli>
+		<titulo>titulo en espanish</titulo>
+		<titulo_original>titulo original</titulo_original>
+		<clasificacion>18</clasificacion>
+		<anho>2002</anho>
+		<reparto>
+			<actor>uno cualquiera</actor>
+		</reparto>
+	</peli>
+		
+	<peli>
+		<titulo>Torrente, el brazo tonto de la ley</titulo>
+		<fichero_grafico>./foto1.png</fichero_grafico>
+		<anho>1998</anho>
+		<reparto>
+			<actor>Santiago Segura</actor>
+		</reparto>
+	</peli>
+</pelis>

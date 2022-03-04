@@ -39,15 +39,16 @@
 	<xsd:complexType>
 		<xsd:sequence>
 			<xsd:element name="nif" type="TipoNif"/>
-			<xsd:element name="letra" type="character"/>
+			<xsd:element name="letra" type="Tipoletra"/>
 		</xsd:sequence>
 	</xsd:complexType>
 </xsd:element>
 
 <!--tipo Character-->
-<xsd:simpleType name="character">
+<xsd:simpleType name="Tipoletra">
 	<xsd:restriction base="xsd:string">
 		<xsd:length fixed="true" value="1"/>
+		<xsd:pattern value="[A-Z]"></xsd:pattern>
 	</xsd:restriction>
 </xsd:simpleType>
 
@@ -105,8 +106,10 @@
 			<xsd:element name="titulo" type="xsd:string"/>
 			<xsd:element name="genero" type="xsd:string"/>
 			<xsd:element name="duracion" type="xsd:time"/>
-			<xsd:element ref="actor" maxOccurs="unbounded"/>
+			<xsd:element ref="actor" minOccurs="3" maxOccurs="3"/>
 		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:ID"/>
+		<xsd:attribute name="valoracion" type="xsd:string"/>
 	</xsd:complexType>
 </xsd:element>
 
@@ -118,8 +121,6 @@
 			<xsd:element name="ape1" type="xsd:string"/>
 			<xsd:element name="ape2" type="xsd:string"/>
 		</xsd:sequence>
-		<xsd:attribute name="id" type="xsd:ID"/>
-		<xsd:attribute name="valoracion" type="xsd:string"/>
 	</xsd:complexType>
 </xsd:element>
 
