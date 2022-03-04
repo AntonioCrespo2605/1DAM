@@ -41,6 +41,7 @@
 			<xsd:element ref="canciones"/>
 			<xsd:element name="formato" type="tipoFormato"/>
 		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:ID"/>
 	</xsd:complexType>
 </xsd:element>
 
@@ -70,6 +71,7 @@
 			<xsd:element name="grupo_colabo" type="xsd:string" minOccurs="0"/>
 			<xsd:element name="letrista" type="xsd:string" maxOccurs="unbounded"/>
 		</xsd:sequence>
+		<xsd:attribute name="pos" type="xsd:ID"/>
 	</xsd:complexType>
 </xsd:element>
 

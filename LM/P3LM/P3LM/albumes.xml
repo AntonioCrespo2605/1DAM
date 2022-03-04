@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE albumes SYSTEM "albumes.dtd">
-	<albumes>
-<!--<albumes xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="albumes./albumes.xsd">-->
+	<!--<albumes>-->
+<albumes xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="albumes./albumes.xsd">
 	<album id="a1">
 		<titulo>Thriller</titulo>
 		<artista>Michael Jackson</artista>
