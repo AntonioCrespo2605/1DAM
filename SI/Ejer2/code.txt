@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [ $# -ge 3 ];
+then
+
+	while true 
+	do
+		echo "elije una opción:"
+		echo "[V] Vacío"
+		echo "[P] Primeras"
+		echo "[D]Doble"
+		echo "[M]Mitad"
+		echo "[F]Fin"
+		read op
+		
+		case $op in
+			m | M)
+			d | D)
+			p | P)
+			v | V) 
+			f | F) echo "fin"
+			exit;;
+			*) echo "opción incorrecta"
+		esac
+	done
+else
+	echo "Error en la introducción de argumentos"
+fi
