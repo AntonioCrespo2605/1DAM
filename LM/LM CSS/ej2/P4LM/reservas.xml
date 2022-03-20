@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reservas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="reservas.xsd">
+
+	<reserva_habitación cliente="C_53454123X" opciones="AD" tipoHabitación="Doble">
+		<fechaEntrada año="2021" mes="Junio" día="18"></fechaEntrada>
+		<fechaSalida año="2021" mes="Junio" día="19"></fechaSalida>
+		<observaciones>LLegan sobre las 20:30</observaciones>
+	</reserva_habitación>
+
+	<reserva_habitación cliente="C_32555111A" opciones="MP" tipoHabitación="Individual">
+		<fechaEntrada año="2021" mes="Agosto" día="2"></fechaEntrada>
+		<fechaSalida año="2021" mes="Agosto" día="4"></fechaSalida>
+	</reserva_habitación>
+
+	<reserva_salón cliente="C_53454123X">
+		<fechaEntrada año="2021" mes="Octubre" día="25"/>
+		<fechaSalida año="2021" mes="Octubre" día="25"/>
+	</reserva_salón>
+
+	<reserva_salón cliente="C_44545123A">
+		<fechaEntrada año="2021" mes="Agosto" día="15"/>
+		<fechaSalida año="2021" mes="Agosto" día="15"/>
+		<observaciones>Servicio de catering</observaciones>
+	</reserva_salón>
+
+	<cliente id="C_53454123X">
+		<nombre>Clara</nombre>
+		<apellidos>Lago Grau</apellidos>
+		<móvil>655656777</móvil>
+	</cliente>
+
+	<cliente id="C_44545123A">
+		<nombre>Fernando</nombre>
+		<apellidos>Simón Soria</apellidos>
+		<móvil>785567811</móvil>
+	</cliente>
+
+	<cliente id="C_32555111A">
+		<nombre>Francisco</nombre>
+		<apellidos>Castro Ramos</apellidos>
+		<móvil>649567811</móvil>
+	</cliente>
+
+	<cliente id="C_37545123L">
+		<empleado>E2_4</empleado>
+	</cliente>
+
+</reservas>

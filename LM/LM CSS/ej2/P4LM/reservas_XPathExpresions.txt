@@ -1,0 +1,14 @@
+Ejercicio 2:
+Tomando como base el documento XML anterior, utilizar expresiones XPath para obtener los siguientes datos:
+
+
+1-El nombre de los clientes que reservaron alguna habitación para entrar en Agosto.
+//cliente[@id=//reserva_habitacion[fechaEntrada[@mes="Agosto"]]/@cliente]/nombre
+
+2-El identificador (id) de los clientes que tengan un nombre que empiece por F.
+//cliente[starts-with(nombre, "F")]/@id
+
+
+nota:para la comprobación de este ejercicio ha sido empleada la web "http://xpather.com/".
+algunos nombres de etiquetas han sido cambiados (reserva_habitación->reserva_habitacion),
+ya que el uso de tildes no está permitido en esta web.
