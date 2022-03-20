@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	 <xsl:strip-space elements="*" />
+	<xsl:strip-space elements="*" />
 	<xsl:template match="reservas">
 		<?xml-stylesheet href="reservas.css" type="text/css"?>
 		<html>
