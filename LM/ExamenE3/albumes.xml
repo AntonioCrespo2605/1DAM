@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	
+<albumes>
+	<album id="a1">
+		<titulo>Thriller</titulo>
+		<artista>Michael Jackson</artista>
+		<discografica>Epic Records</discografica>
+		<productor>Quincy Jones</productor>
+		<num_canciones>4</num_canciones>
+		<duracion>00:42:19</duracion>
+		<fecha_pub>1982-11-30</fecha_pub>
+		<genero>pop</genero>
+		<genero>rock</genero>
+		<precio>12.37</precio>
+		<url_caratula>https://es.wikipedia.org/wiki/Thriller_(%C3%A1lbum)</url_caratula>
+		<canciones>
+			<cancion pos="c1">
+				<titulo>Thriller</titulo>
+				<duracion>00:05:58</duracion>
+				<letrista>Rod Temperton</letrista>
+			</cancion>
+			<cancion pos="c2">
+				<titulo>Beat It</titulo>
+				<duracion>00:04:18</duracion>
+				<letrista>Michael Jackson</letrista>
+			</cancion>
+			<cancion pos="c3">
+				<titulo>Billie Jean</titulo>
+				<duracion>00:04:54</duracion>
+				<letrista>Michael Jackson</letrista>
+			</cancion>
+			<cancion pos="c4">
+				<titulo>Wanna Be Startin' Somethin'</titulo>
+				<duracion>00:06:03</duracion>
+				<letrista>Michael Jackson</letrista>
+			</cancion>
+		</canciones>
+		<formato>Vinilo</formato>
+		<formato>DVD</formato>
+	</album>
+	
+	<album id="a2">
+		<titulo>The Dark Side of the Moon</titulo>
+		<grupo>Pink Floyd</grupo>
+		<discografica>Harvest Records</discografica>
+		<productor>Pink Floyd</productor>
+		<num_canciones>9</num_canciones>
+		<duracion>00:42:59</duracion>
+		<fecha_pub>1973-03-01</fecha_pub>
+		<genero>rock progresivo</genero>
+		<genero>art rock</genero>
+		<precio>5.13</precio>
+		<url_caratula>https://es.wikipedia.org/wiki/The_Dark_Side_of_the_Moon</url_caratula>
+		<canciones>
+			<cancion pos="a2c1">
+				<titulo>Speak to me</titulo>
+				<duracion>00:01:07</duracion>
+				<letrista>Nick Mason</letrista>
+			</cancion>
+			<cancion pos="a2c2">
+				<titulo>Breathe</titulo>
+				<duracion>00:02:49</duracion>
+				<letrista>Roger Waters</letrista>
+				<letrista>David Gilmour</letrista>
+				<letrista>Richard Wright</letrista>
+			</cancion>
+			<cancion pos="a2c3">
+				<titulo>On the run</titulo>
+				<duracion>00:03:50</duracion>
+				<letrista>Roger Waters</letrista>
+				<letrista>David Gilmour</letrista>
+			</cancion>
+		</canciones>
+		<formato>CD</formato>
+		<formato>Vinilo</formato>
+	</album>
+
+	<album id="a3">
+		<titulo>Back in Black</titulo>
+		<grupo>AC/DC</grupo>
+		<discografica>Atco Records</discografica>
+		<productor>Robert Lange</productor>
+		<num_canciones>10</num_canciones>
+		<duracion>00:42:11</duracion>
+		<fecha_pub>1980-06-25</fecha_pub>
+		<genero>Hard rock</genero>
+		<genero>Heavy Metal</genero>
+		<genero>Arena Rock</genero>
+		<precio>7.99</precio>
+		<canciones>
+			<cancion pos="a3c1">
+				<titulo>Speak to me</titulo>
+				<duracion>00:01:07</duracion>
+				<letrista>Nick Mason</letrista>
+			</cancion>
+			<cancion pos="a3c2">
+				<titulo>Breathe</titulo>
+				<duracion>00:02:49</duracion>
+				<letrista>Roger Waters</letrista>
+				<letrista>David Gilmour</letrista>
+				<letrista>Richard Wright</letrista>
+			</cancion>
+			<cancion pos="a3c3">
+				<titulo>On the run</titulo>
+				<duracion>00:03:50</duracion>
+				<letrista>Roger Waters</letrista>
+				<letrista>David Gilmour</letrista>
+			</cancion>
+		</canciones>
+		<formato>CD</formato>
+		<formato>Vinilo</formato>
+	</album>
+
+	<album id="a4">
+		<titulo>Come On Over</titulo>
+		<artista>Shania Twain</artista>
+		<discografica>Mercury Records</discografica>
+		<productor>Robert Lange</productor>
+		<num_canciones>12</num_canciones>
+		<duracion>00:06:26</duracion>
+		<fecha_pub>1997-11-04</fecha_pub>
+		<genero>Pop Rock</genero>
+		<genero>County Pop</genero>
+		<genero>Rock</genero>
+		<precio>1.99</precio>
+		<canciones>
+			<cancion pos="a4c1">
+				<titulo>Love Gets Me Every Time</titulo>
+				<duracion>00:03:33</duracion>
+				<letrista>Shania Twain</letrista>
+				<letrista>Robert Lange</letrista>
+			</cancion>
+			<cancion pos="a4c2">
+				<titulo>Don´t Be Stupid (You know I Love You)</titulo>
+				<duracion>00:03:34</duracion>
+				<letrista>Shania Twain</letrista>
+				<letrista>Robert Lange</letrista>
+			</cancion>
+			<cancion pos="a4c3">
+				<titulo>You´re Still the One</titulo>
+				<duracion>00:03:34</duracion>
+				<letrista>Shania Twain</letrista>
+			</cancion>
+			<cancion pos="a4c4">
+				<titulo>When</titulo>
+				<duracion>00:03:39</duracion>
+				<letrista>Shania Twain</letrista>
+				<letrista>Robert Lange</letrista>
+			</cancion>
+		</canciones>
+		<formato>Digital</formato>
+		<formato>CD</formato>
+	</album>
+
+	<album id="a5">
+		<titulo>Appetite for Destruction</titulo>
+		<artista>Guns N´Roses</artista>
+		<discografica>Geffen Records</discografica>
+		<productor>Mike Clink</productor>
+		<num_canciones>5</num_canciones>
+		<duracion>00:53:55</duracion>
+		<fecha_pub>1987-07-21</fecha_pub>
+		<genero>Hard Rock</genero>
+		<genero>Sleaze Rock</genero>
+		<precio>5.98</precio>
+		<canciones>
+			<cancion pos="a5c1">
+				<titulo>It´s So Easy</titulo>
+				<duracion>00:03:23</duracion>
+				<letrista>Duff McKagan</letrista>
+				<letrista>West Arkeen</letrista>
+			</cancion>
+			<cancion pos="a5c2">
+				<titulo>Welcome to the Jungle</titulo>
+				<duracion>00:04:33</duracion>
+				<letrista>Axl Rose</letrista>
+			</cancion>
+			<cancion pos="a5c3">
+				<titulo>Sweet Child o´Mine</titulo>
+				<duracion>00:05:56</duracion>
+				<letrista>Axl Rose</letrista>
+			</cancion>
+		</canciones>
+		<formato>Vinilo</formato>
+		<formato>Digital</formato>
+	</album>
+
+	<album id="a6">
+		<titulo>Mawz</titulo>
+		<artista>Lit Killah</artista>
+		<discografica>Warner Music</discografica>
+		<productor>Big One</productor>
+		<num_canciones>14</num_canciones>
+		<duracion>00:45:28</duracion>
+		<fecha_pub>2021-08-19</fecha_pub>
+		<genero>Rap</genero>
+		<genero>Trap</genero>
+		<precio>2.21</precio>
+		<canciones>
+			<cancion pos="a6c1">
+				<titulo>Dejame Tranki</titulo>
+				<duracion>00:03:34</duracion>
+				<artista_colabo>Khea</artista_colabo>
+				<letrista>Lit Killah</letrista>
+				<letrista>Khea</letrista>
+			</cancion>
+			<cancion pos="a6c2">
+				<titulo>California</titulo>
+				<duracion>00:03:22</duracion>
+				<letrista>Lit Killah</letrista>
+			</cancion>
+			<cancion pos="a6c3">
+				<titulo>En la Oscuridad</titulo>
+				<duracion>00:02:53</duracion>
+				<artista_colabo>María Becerra</artista_colabo>
+				<letrista>María Becerra</letrista>
+				<letrista>Lit Killah</letrista>
+			</cancion>
+		</canciones>
+		<formato>CD</formato>
+		<formato>Digital</formato>
+		<formato>DVD</formato>
+	</album>
+
+	<album id="a7">
+		<titulo>Dispuestos a morir</titulo>
+		<grupo>Hijos de la Ruina</grupo>
+		<productor>SokeThugPro</productor>
+		<num_canciones>1</num_canciones>
+		<duracion>00:04:20</duracion>
+		<fecha_pub>2019-09-05</fecha_pub>
+		<genero>Rap</genero>
+		<genero>Trap</genero>
+		<precio>0.99</precio>
+		<canciones>
+			<cancion pos="a7c1">
+				<titulo>Dispuestos a morir</titulo>
+				<duracion>00:04:20</duracion>
+				<grupo_colabo>Bardero$</grupo_colabo>
+				<letrista>Natos</letrista>
+				<letrista>Waor</letrista>
+				<letrista>C.R.O</letrista>
+				<letrista>Homer El Mero Mero</letrista>
+			</cancion>
+		</canciones>
+		<formato>Digital</formato>
+		<formato>DVD</formato>
+	</album>
+</albumes>
