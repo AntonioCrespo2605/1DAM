@@ -39,9 +39,9 @@ public class Main {
 				break;
 			case"4":
 				break;
-			case"5":
+			case"5":eliminarInmueble();
 				break;
-			case"6":
+			case"6":conFiltros();
 				stay=false;
 				break;
 			default:
@@ -144,8 +144,8 @@ public class Main {
 				toread=sc.nextLine();
 				toread=toread.toUpperCase();
 				toread=toread.trim();
-				if(!combrobarLetraPiso(toread))System.err.println("Letra incorrecta. Por favor inténtelo de nuevo(a-z):");
-				}while(!combrobarLetraPiso(toread));
+				if(!comprobarLetraPiso(toread))System.err.println("Letra incorrecta. Por favor inténtelo de nuevo(a-z):");
+				}while(!comprobarLetraPiso(toread));
 				((Piso)aux).setLetra(toread.charAt(0));
 				
 				do {
@@ -361,7 +361,7 @@ public class Main {
 		else return true;
 	}
 	
-	private static boolean combrobarLetraPiso(String letra) {
+	private static boolean comprobarLetraPiso(String letra) {
 		letra=letra.toUpperCase();
 		letra=letra.trim();
 		char aux=letra.charAt(0);
@@ -380,12 +380,12 @@ public class Main {
 		System.out.println("Inmuebles disponibles:");
 		a.mostrarInmueblesShort();
 		
+		do {
 		repeat=false;
 		System.out.println("\nEscriba el ID del piso a modificar o 'c' para cancelar");
 		id=sc.nextLine();
 		id=id.toLowerCase();
 		id=id.trim();
-		do {
 		switch(id) {
 		case"c":
 			System.out.println("No se ha modificado ningún piso;");
@@ -407,7 +407,7 @@ public class Main {
 		boolean alquiler=true;
 		boolean repeat=true;
 		String op="";
-		
+		do {
 		repeat=true;
 		if(a.getInmuebles().get(pos).isAlquiler())alquiler=true;
 		else alquiler=false;
@@ -435,14 +435,16 @@ public class Main {
 				+ "\n10-Modificar disponibilidad de jardín:");
 		else System.out.println("11-Modificar la letra del Piso:"
 				+ "\n12-Modificar el tipo de piso(estudio/no estudio):"
-				+ "\n13-Modificar el número de planta:"
-				+ "\n14-Cambiar su tipo(casa/piso)(deberá rellenar los campos adicionales también:"
-				+ "\nEscriba su opción a continuación:)");
+				+ "\n13-Modificar el número de planta:");
+		System.out.println("\n14-Modificar el tipo(casa/piso)");
+		
 		op=sc.nextLine();
 		op=op.toLowerCase();
 		op=op.trim();
 		switch(op) {
-		case"m":man();
+		case"m":
+		case"man":
+			man();
 			break;
 		case"c":repeat=false;
 			break;
@@ -492,10 +494,13 @@ public class Main {
 			if(casa)error();
 			else modificarPlanta(pos);
 			break;
+		case"14":
+			modificarTipo(pos);
+			break;
 		default:error();
 			break;
 		}
-		
+	}while(repeat);
 		
 	}
 	
@@ -503,6 +508,7 @@ public class Main {
 		System.err.println("Opción incorrecta. En caso de duda consulte el manual(m)."
 				+ "\nPorfavor, inténtelo de nuevo:");
 	}
+	
 	private static void man() {
 		System.out.println("------------------------------------------------------------------------------------------------------------------");
 		System.out.println("El modo de modificación oculta las modificaciones que no son posibles y no permite acceder a ellas."
@@ -518,4 +524,537 @@ public class Main {
 		System.out.println("------------------------------------------------------------------------------------------------------------------");
 	}
 	
+	private static void modificarSuperficie(int pos) {
+		String sup;
+		double s=1;
+		boolean ok=true;
+		
+		do {
+		System.out.println("Escribe la nueva superficie o 'c' para cancelar:");
+		sup=sc.nextLine();
+		sup=sup.trim();
+		sup=sup.toLowerCase();
+		if(sup.equals("c"))ok=true;
+		else {
+			s=Double.parseDouble(sup);
+			if(s<=0) {
+				System.err.println("Superficie inválida. Por favor inténtelo de nuevo;");
+				ok=false;
+			}else ok=true;
+		}
+		}while(!ok);
+		
+		if(!sup.equals("c"))a.getInmuebles().get(pos).setSuperficie(s);
+	}
+	
+	private static void modificarGarage(int pos) {
+		boolean g=a.getInmuebles().get(pos).isGaraje();
+		String op;
+		boolean ok=false;
+		boolean newg=false;
+		
+		do {
+		ok=false;
+		if(g) System.out.println("Escriba 'n' para cambiar la disponibilidad de garage a no o escriba 's' para dejarla a si");
+		else System.out.println("Escriba 'n' para dejar la disponibilidad de garage a no o escriba 's'para cambiarla a si ");
+		op=sc.nextLine();
+		op=op.toLowerCase();
+		op=op.trim();
+		
+		if(op.equals("s")||op.equals("si")) {
+			newg=true;
+			ok=true;
+		}else if(op.equals("n")||op.equals("no")) {
+			newg=false;
+			ok=true;
+		}else System.err.println("opción desconocida. Porfavor, inténtelo de nuevo;");
+		}while(!ok);
+		
+		a.getInmuebles().get(pos).setGaraje(newg);
+	}
+	
+	private static void modificarDireccion(int pos) {
+		Direccion dir=new Direccion();
+		String aux;
+		int aux2;
+		
+		do {
+		System.out.println("Escribe el tipo de dirección (calle,avenida,plaza,camino,carretera,paseo:)");
+		aux=sc.nextLine();
+		aux=aux.toLowerCase();
+		aux=aux.trim();
+		if(!comprobarTipoDireccion(aux))System.err.println("Tipo incorrecto. Porfavor, inténtelo de nuevo;");
+		}while(!comprobarTipoDireccion(aux));
+		dir.setTipo(aux);
+		
+		System.out.println("Escribe el nombre de la dirección:");
+		dir.setNombre(sc.nextLine());
+		
+		do {
+		System.out.println("Escriba el número de la Dirección:");
+		aux2=Integer.parseInt(sc.nextLine());
+		if(!numMay0(aux2))System.err.println("El número debe ser mayor o igual a 1. Porfavor, inténtelo de nuevo");
+		}while(!numMay0(aux2));
+		dir.setNum(aux2);
+		
+		do {
+		System.out.println("Escriba el Código postal (entre 8033 y 99999):");
+		aux2=Integer.parseInt(sc.nextLine());
+		if(aux2<8033 || aux2>99999)System.err.println("Código postal incorrecto. Porfavor, inténtelo de nuevo;");
+		}while(aux2<8033 || aux2>99999);
+		dir.setCp(aux2);
+		
+		a.getInmuebles().get(pos).setDireccion(dir);
+		System.out.println("Dirección cambiada con éxito");
+	}
+	
+	private static void modificarNumHab(int pos) {
+		String aux;
+		int num=1;
+		boolean ok;
+		do {
+		ok=false;
+		System.out.println("Escribe el nuevo número de habitaciones o 'c' para cancelar:");
+		aux=sc.nextLine();
+		aux=aux.toLowerCase();
+		aux=aux.trim();
+		if(aux.equals("c"))ok=true;
+		else {
+			num=Integer.parseInt(aux);
+			if(num<1)System.err.println("El número de habitaciones ha de ser 1 o más. Porfavor, inténtelo de nuevo;");
+			else ok=true;
+		}
+		}while(!ok);
+		
+		if(!aux.equals("c"))a.getInmuebles().get(pos).setNumHab(num);
+	}
+
+	private static void modificarVenta(int pos) {
+		boolean v=a.getInmuebles().get(pos).isVenta();
+		String aux;
+		boolean newv=true;
+		boolean ok;
+		double aux2;
+		
+		do {
+		ok=true;
+		if(v)System.out.println("Escriba 's' para dejar la disponibilidad de venta a si o 'n' para cambiarla a no:");
+		else System.out.println("Escriba 's' para cambiar la disponibilidad de venta a si o 'n' para dejarla en no:");
+		aux=sc.nextLine();
+		aux=aux.toLowerCase();
+		aux=aux.trim();
+		switch(aux) {
+		case"s":
+		case"si":
+			newv=true;
+			break;
+		case"no":
+		case"n":
+			newv=false;
+			break;
+		default:
+			ok=false;
+			System.err.println("Opción incorrecta. Porfavor, inténtelo de nuevo;");
+		}
+		}while(!ok);
+		a.getInmuebles().get(pos).setVenta(newv);
+		if(newv && !v) {
+			do {
+			System.out.println("Escribe el precio de venta:");
+			aux2=Double.parseDouble(sc.nextLine());
+			if(aux2<0)System.err.println("Precio incorrecto. Porfavor, inténtelo de nuevo:");
+			}while(aux2<0);
+			a.getInmuebles().get(pos).setPrecioVenta(aux2);
+		}else if(!newv && v) {
+			a.getInmuebles().get(pos).setPrecioVenta(0);
+		}
+	}
+	
+	private static void modificarAlquiler(int pos) {
+		boolean al=a.getInmuebles().get(pos).isAlquiler();
+		String aux;
+		boolean newa=true;
+		boolean ok;
+		double aux2;
+		
+		do {
+		ok=true;
+		if(al)System.out.println("Escriba 's' para dejar la disponibilidad de alquiler a si o 'n' para cambiarla a no:");
+		else System.out.println("Escriba 's' para cambiar la disponibilidad de alquiler a si o 'n' para dejarla en no:");
+		aux=sc.nextLine();
+		aux=aux.toLowerCase();
+		aux=aux.trim();
+		switch(aux) {
+		case"s":
+		case"si":
+			newa=true;
+			break;
+		case"no":
+		case"n":
+			newa=false;
+			break;
+		default:
+			ok=false;
+			System.err.println("Opción incorrecta. Porfavor, inténtelo de nuevo;");
+		}
+		}while(!ok);
+		a.getInmuebles().get(pos).setAlquiler(newa);
+		if(newa && !al) {
+			do {
+			System.out.println("Escribe el precio de alquiler:");
+			aux2=Double.parseDouble(sc.nextLine());
+			if(aux2<0)System.err.println("Precio incorrecto. Porfavor, inténtelo de nuevo:");
+			}while(aux2<0);
+			a.getInmuebles().get(pos).setPrecioAlquiler(aux2);
+		}else if(!newa && al) {
+			a.getInmuebles().get(pos).setPrecioAlquiler(0);
+		}
+	}
+	
+	private static void modificarPAlquiler(int pos) {
+		String aux;
+		boolean ok;
+		
+		do {
+		ok=true;
+		System.out.println("Escribe el nuevo precio de alquiler o 'c' para cancelar:");
+		aux=sc.nextLine();
+		aux=aux.trim();
+		aux=aux.toLowerCase();
+		switch(aux) {
+		case"c":
+			break;
+		default:
+			if(Integer.parseInt(aux)<0) {
+				ok=false;
+				System.err.println("El precio no puede ser negativo. Porfavor, inténtelo de nuevo;");
+			}else a.getInmuebles().get(pos).setPrecioAlquiler(Integer.parseInt(aux));
+			break;
+		}
+		}while(!ok);
+	}
+	
+	private static void modificarPVenta(int pos) {
+		String aux;
+		boolean ok;
+		
+		do {
+		ok=true;
+		System.out.println("Escribe el nuevo precio de venta o 'c' para cancelar:");
+		aux=sc.nextLine();
+		aux=aux.trim();
+		aux=aux.toLowerCase();
+		switch(aux) {
+		case"c":
+			break;
+		default:
+			if(Integer.parseInt(aux)<0) {
+				ok=false;
+				System.err.println("El precio no puede ser negativo. Porfavor, inténtelo de nuevo;");
+			}else a.getInmuebles().get(pos).setPrecioVenta(Integer.parseInt(aux));
+			break;
+		}
+		}while(!ok);
+	}
+	
+	private static void modificarPiscina(int pos) {
+		Casa c= new Casa((Casa) a.getInmuebles().get(pos));
+		boolean pis=c.isPiscina();
+		String op;
+		boolean ok=true;
+		
+		do {
+		ok=true;
+		if(pis)System.out.println("Escribe 's' para dejar la disponibilidad de piscina o 'n' para quitarla:");
+		else System.out.println("Escribe 's' para cambiar la disponibilidad de piscina a si o 'n' para dejarla en no:");
+		op=sc.nextLine();
+		op=op.toLowerCase();
+		op=op.trim();
+		
+		switch(op) {
+		case"s":
+		case"si":
+			c.setPiscina(true);
+			break;
+		case"no":
+		case"n":
+			c.setPiscina(false);
+			break;
+		default:
+			System.err.println("Opción desconocida. Porfavor, inténtelo de nuevo.");
+			ok=false;
+			break;
+		}
+		}while(!ok);
+		a.cambiarInmueble(pos, c);
+	}
+	
+	private static void modificarJardin(int pos) {
+		Casa c= new Casa((Casa) a.getInmuebles().get(pos));
+		boolean jar=c.isJardin();
+		String op;
+		boolean ok=true;
+		
+		do {
+		ok=true;
+		if(jar)System.out.println("Escribe 's' para dejar la disponibilidad de jardín o 'n' para quitarla:");
+		else System.out.println("Escribe 's' para cambiar la disponibilidad de jardín a si o 'n' para dejarla en no:");
+		op=sc.nextLine();
+		op=op.toLowerCase();
+		op=op.trim();
+		
+		switch(op) {
+		case"s":
+		case"si":
+			c.setJardin(true);
+			break;
+		case"no":
+		case"n":
+			c.setJardin(false);
+			break;
+		default:
+			System.err.println("Opción desconocida. Porfavor, inténtelo de nuevo.");
+			ok=false;
+			break;
+		}
+		}while(!ok);
+		a.cambiarInmueble(pos, c);
+	}
+	
+	private static void modificarLetra(int pos) {
+		Piso p=new Piso((Piso)a.getInmuebles().get(pos));
+		String aux;
+		
+		do {
+		System.out.println("La letra actual es "+p.getLetra()+". Escriba la nueva letra [A-Z](solo se tomará la primera):");
+		aux=sc.nextLine();
+		aux=aux.trim();
+		aux=aux.toUpperCase();
+		if(!comprobarLetraPiso(aux))System.err.println("Letra incorrecta. Porfavor, inténtelo de nuevo");
+		}while(!comprobarLetraPiso(aux));
+		
+		p.setLetra(aux.charAt(0));
+		a.cambiarInmueble(pos, p);
+	}
+
+	private static void modificarEstudio(int pos) {
+		Piso p=new Piso((Piso)a.getInmuebles().get(pos));
+		boolean es=p.isEstudio();
+		boolean newes=false;
+		String op;
+		boolean ok;
+		
+		do {
+		ok=true;
+		if(es)System.out.println("Escriba 's' para dejar el piso como un estudio o 'n' para definirlo como piso estándar:");
+		else  System.out.println("Escriba 's' para cambiar el piso a estudio o 'n' para dejarlo en piso estándar:");
+		op=sc.nextLine();
+		op=op.trim();
+		op=op.toLowerCase();
+		switch(op) {
+		case"s":
+		case"si":
+		case"yes":
+			newes=true;
+			break;
+		case"n":
+		case"no":
+			newes=false;
+			break;
+		default:
+			System.err.println("Opción incorrecta. Porfavor, inténtelo de nuevo;");
+			ok=false;
+			break;
+		}
+		}while(!ok);
+		
+		if(!es && newes) {
+			p.setNumHab(1);
+			p.setEstudio(newes);
+			a.cambiarInmueble(pos, p);
+		}else if(es && !newes) {
+			p.setEstudio(newes);
+			a.cambiarInmueble(pos, p);
+		}
+	}
+
+	private static void modificarPlanta(int pos) {
+		Piso p=new Piso((Piso)a.getInmuebles().get(pos));
+		String op;
+		
+		System.out.println("La planta actual es "+p.getNumPiso()+". Escriba la nueva planta o 'c' para cancelar:");
+		op=sc.nextLine();
+		op=op.trim();
+		op=op.toLowerCase();
+		if(!op.equals("c")) {
+			p.setNumPiso(Integer.parseInt(op));
+			a.cambiarInmueble(pos, p);
+		}
+	}
+
+	private static void modificarTipo(int pos) {
+		boolean casa=true;
+		if(a.getInmuebles().get(pos) instanceof Piso) casa=false;
+		else casa=true;
+		boolean newcasa=true;
+		boolean ok=true;
+		String op;
+		
+		do {
+		ok=true;
+		if(casa)System.out.println("Escribe 'c' para dejar el inmueble como casa o 'p' para cambiarlo de casa a piso:");
+		else System.out.println("Escribe 'c' para cambiar de piso a casa o 'p' para dejar el inmueble como piso:");
+		op=sc.nextLine();
+		op=op.trim();
+		op=op.toLowerCase();
+		
+		switch(op) {
+		case"c":
+		case"casa":
+			newcasa=true;
+			break;
+		case"p":
+		case"piso":
+			newcasa=false;
+			break;
+		default:
+			ok=false;
+			System.err.println("Opción desconocida. Porfavor, inténtelo de nuevo.");
+			break;
+		}
+		}while(!ok);
+		
+		if(casa && !newcasa) {
+			String aux;
+			Casa c1=new Casa((Casa)a.getInmuebles().get(pos));
+			Piso p1=new Piso(c1);
+			System.out.println("A continuación rellene los siguientes campos para completar el piso:");
+			System.out.println("Escriba la planta:");
+			p1.setNumPiso(Integer.parseInt(sc.nextLine()));
+			
+			do {
+			System.out.println("Escriba la letra(se tomará la primera):");
+			aux=sc.nextLine();
+			aux=aux.toUpperCase();
+			aux=aux.trim();
+			if(!comprobarLetraPiso(aux))System.err.println("Letra desconocida. Porfavor, inténtelo de nuevo.");
+			}while(!comprobarLetraPiso(aux));
+			p1.setLetra(aux.charAt(0));
+			
+			do {
+			ok=true;
+			System.out.println("¿Es un estudio(s/n)?");
+			aux=sc.nextLine();
+			aux=aux.toLowerCase();
+			aux=aux.trim();
+			switch(aux) {
+			case"s":
+			case"si":
+				p1.setNumHab(1);
+				p1.setEstudio(true);
+				break;
+			case"n":
+			case"no":
+				p1.setEstudio(false);
+				break;
+			default:
+				System.err.println("Opción desconocida. Porfavor, inténtelo de nuevo.");
+				ok=false;
+				break;
+			}
+			a.cambiarInmueble(pos, p1);
+			System.out.println("Se ha cambiado de casa a piso con éxito.");
+			}while(!ok);
+		
+		}else if(!casa && newcasa) {
+			String aux;
+			Piso p2=new Piso((Piso)a.getInmuebles().get(pos));
+			Casa c2=new Casa(p2);
+			System.out.println("A continuación rellene los siguientes campos para completar la casa.");
+			
+			do {
+				ok=true;
+				System.out.println("¿Cuenta con piscina(s/n)?");
+				aux=sc.nextLine();
+				aux=aux.trim();
+				aux=aux.toLowerCase();
+				switch(aux) {
+				case"si":
+				case"s":
+					c2.setPiscina(true);
+					break;
+				case"no":
+				case"n":
+					c2.setPiscina(false);
+					break;
+				default:
+					ok=false;
+					System.err.println("Opción desconocida. Porfavor, inténtelo de nuevo;");
+				}
+			}while(!ok);
+			
+			do {
+				ok=true;
+				System.out.println("¿Cuenta con jardín(s/n)?");
+				aux=sc.nextLine();
+				aux=aux.trim();
+				aux=aux.toLowerCase();
+				switch(aux) {
+				case"si":
+				case"s":
+					c2.setJardin(true);
+					break;
+				case"no":
+				case"n":
+					c2.setJardin(false);
+					break;
+				default:
+					ok=false;
+					System.err.println("Opción desconocida. Porfavor, inténtelo de nuevo;");
+				}
+			}while(!ok);
+			
+			a.cambiarInmueble(pos, c2);
+			System.out.println("Se ha cambiado de piso a casa con éxito;");
+		}
+	}
+
+	private static void eliminarInmueble() {
+		String op;
+		boolean ok;
+		
+		do {
+		ok=true;
+		System.out.println("Inmuebles disponibles:");
+		a.mostrarInmueblesShort();
+		System.out.println("Escribe el id del inmueble que desea borrar o 'c' para cancelar:");
+		op=sc.nextLine();
+		op=op.toLowerCase();
+		op=op.trim();
+		switch(op) {
+		case"c":
+			break;
+		default:
+			int aux=Integer.parseInt(op);
+			a.eliminarInmueble(aux);
+			if(aux==-1) {
+				ok=false;
+				System.err.println("Porfavor, inténtelo de nuevo;");
+			}
+			break;
+		}
+		}while(!ok);
+		
+	}
+
+	private static void conFiltros() {
+		
+	}
 }
+	
+	
+	
+	
+	
+
+
