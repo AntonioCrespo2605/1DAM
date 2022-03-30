@@ -37,11 +37,11 @@ public class Main {
 				break;
 			case"3":a.mostrarInmuebles();
 				break;
-			case"4":
+			case"4":conFiltros();
 				break;
 			case"5":eliminarInmueble();
 				break;
-			case"6":conFiltros();
+			case"6":
 				stay=false;
 				break;
 			default:
@@ -1047,13 +1047,172 @@ public class Main {
 		
 	}
 
+	private static boolean soloPisos=false;
+	private static boolean soloCasas=false;
+	private static boolean soloConAlquiler=false;
+	private static boolean soloConVenta=false;
+	private static boolean entrePrecios=false;
+	private static boolean entreSuperficies=false;
+	private static double precioMin=1;
+	private static double precioMax=1;
+	private static double superficieMax=1;
+	private static double superficieMin=1;
+	
 	private static void conFiltros() {
+		boolean repetir=true;
+		do {
+		repetir=true;
+		System.out.print("Filtros aplicados:");
+		if(!(soloPisos||soloCasas||soloConAlquiler||soloConVenta||entrePrecios||entreSuperficies)) {
+			System.out.print("Ningún filtro aplicado.");
+		}else {
+			if(soloPisos)System.out.print("Solo pisos/");
+			if(soloCasas)System.out.print("Solo casas/");
+			if(soloConAlquiler)System.out.print("Solo disponibles en alquiler/");
+			if(soloConVenta)System.out.print("Solo disponibles a la venta/");
+			if(entrePrecios)System.out.print("Solo entre "+precioMin+" y "+precioMax+" euros/");
+			if(entreSuperficies)System.out.print("Solo entre "+superficieMin+" y "+superficieMax+" metros cuadrados/");
+		}
+		String op;
+		System.out.println("\nElija una opción:"
+				+ "\n1-Solo mostrar casas"
+				+ "/2-Solo mostrar pisos;"
+				+ "\n3-Mostrar casas y pisos(sin filtro de tipo);"
+				+ "\n4-Solo disponibles en alquiler"
+				+ "/5-Solo disponibles a la venta;"
+				+ "\n6-Mostrar a la venta o alquiler(sin filtro de adquisición);"
+				+ "\n7-En un rango de precios;"
+				+ "\n8-Sin rango de precios(sin filtro de precios);"
+				+ "\n9-En un rango de superficie;"
+				+ "\n10-Sin rango de superficie(sin filtro de superficie);"
+				+ "\n11-Quitar todos los filtros;"
+				+ "\n12-MOSTRAR CON LOS FILTROS;"
+				+ "\n0-SALIR DE LA BÚSQUEDA CON FILTROS;");
+		op=sc.nextLine();
+		op=op.trim();
+		switch(op) {
+		case"1":
+			soloCasas=true;
+			soloPisos=false;
+			break;
+		case"2":
+			soloPisos=true;
+			soloCasas=false;
+			break;
+		case"3":
+			soloPisos=false;
+			soloCasas=false;
+			break;
+		case"4":
+			soloConAlquiler=true;
+			break;
+		case"5":
+			soloConVenta=true;
+			break;
+		case"6":
+			soloConAlquiler=false;
+			soloConVenta=false;
+			break;
+		case"7":rangoPrecios();
+			break;
+		case"8":
+			entrePrecios=false;
+			break;
+		case"9":rangoSuperficies();
+			break;
+		case"10":
+			entreSuperficies=false;
+			break;
+		case"11":
+			soloCasas=false;
+			soloPisos=false;
+			soloConAlquiler=false;
+			soloConVenta=false;
+			entrePrecios=false;
+			entreSuperficies=false;
+			break;
+		case"0":repetir=false;
+			break;
+		case"12":mostrarConFiltros();
+			break;
+		default:System.err.println("Opción incorrecta. Porfavor, inténtelo de nuevo;");
+			break;
+		}
+		}while(repetir);
 		
 	}
+	
+	private static void rangoPrecios() {
+		double p1=0;
+		double p2=0;
+		System.out.println("Escriba los precios minimo y máximo en cualquier orden;");
+		
+		do {
+		System.out.println("Escriba el primer precio:");
+		p1=Double.parseDouble(sc.nextLine());
+		if(p1<0)System.err.println("Precio incorrecto. Porfavor, inténtelo de nuevo;");
+		}while(p1<0);
+		
+		do {
+		System.out.println("Escriba el segundo precio:");
+		p2=Double.parseDouble(sc.nextLine());
+		if(p2<0)System.err.println("Precio incorrecto. Porfavor, inténtelo de nuevo;");
+		}while(p2<0);
+		
+		if(p1>p2) {
+			precioMin=p2;
+			precioMax=p1;
+		}else {
+			precioMin=p1;
+			precioMax=p2;
+		}
+		
+		entrePrecios=true;
+	}
+	
+	private static void rangoSuperficies() {
+		double s1=0;
+		double s2=0;
+		System.out.println("Escriba las superficies minima y máxima en cualquier orden;");
+		
+		do {
+		System.out.println("Escriba la primera superficie:");
+		s1=Double.parseDouble(sc.nextLine());
+		if(s1<=0)System.err.println("Superficie incorrecta. Porfavor, inténtelo de nuevo;");
+		}while(s1<=0);
+		
+		do {
+		System.out.println("Escriba la segunda superficie:");
+		s2=Integer.parseInt(sc.nextLine());
+		if(s2<=0)System.err.println("Superficie incorrecta. Porfavor, inténtelo de nuevo;");
+		}while(s2<=0);
+		
+		if(s1>s2) {
+			superficieMin=s2;
+			superficieMax=s1;
+		}else {
+			superficieMin=s1;
+			superficieMax=s2;
+		}
+		
+		entreSuperficies=true;
+	}
+	
+	private static void mostrarConFiltros() {
+		Agencia nueva=new Agencia(a);
+		if(soloPisos)nueva=nueva.soloPisos();
+		if(soloCasas)nueva=nueva.soloCasas();
+		if(soloConAlquiler)nueva=nueva.soloAlquiler();
+		if(soloConVenta)nueva=nueva.soloVenta();
+		if(entrePrecios)nueva=nueva.inmueblesEntrePrecios(precioMin, precioMax);
+		if(entreSuperficies)nueva=nueva.inmueblesEntreSuperficies(superficieMin, superficieMax);
+		nueva.mostrarInmuebles();
+	}
+	
 }
 	
-	
-	
+
+
 	
 	
 

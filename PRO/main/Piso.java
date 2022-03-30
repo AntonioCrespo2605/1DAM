@@ -2,7 +2,7 @@ package main;
 
 import java.util.Random;
 
-public class Piso extends Inmueble{
+public class Piso extends Inmueble implements Impuestable{
 	private int numPiso;
 	private char letra;
 	private boolean estudio;
@@ -11,7 +11,7 @@ public class Piso extends Inmueble{
 	
 	private void checkLetra(char l) {
 		boolean ok=false;
-		String aux=l+"";
+		String aux=l+""; 
 		aux=aux.toUpperCase();
 		l=aux.charAt(0);
 		int i;
@@ -118,8 +118,18 @@ public class Piso extends Inmueble{
 		if(estudio)toret="Estudio ";
 		else toret="Piso ";
 		toret+=getNumPiso()+""+ getLetra()+"\n"+super.toString();
-		
+		if(this.isVenta())toret+=("\nPrecio Venta con impuestos:"+precioVentaConImpuesto()+";");
+		if(this.isAlquiler())toret+=("\nPrecio Alquiler con impuestos:"+precioAlquilerConImpuesto()+";");
 		return toret;
 	}
 	
+	public double precioAlquilerConImpuesto() {
+		double preciofinal=getPrecioAlquiler()+(getPrecioAlquiler()*ITP/100);
+		return preciofinal;
+	}
+	
+	public double precioVentaConImpuesto() {
+		double preciofinal=getPrecioVenta()+(getPrecioVenta()*ITP/100);
+		return preciofinal;
+	}
 }

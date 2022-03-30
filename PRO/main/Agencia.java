@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Agencia {
-	Random r=new Random();
+	private static Random r=new Random();
 	private ArrayList<Inmueble> inmuebles;
 	private String nombre;
 	
@@ -13,9 +13,9 @@ public class Agencia {
 		this.inmuebles=autogenerar12inmuebles();
 	}
 	
-	public Agencia(Agencia a) {
-		this.inmuebles=a.getInmuebles();
-		this.nombre=a.getNombre();
+	public Agencia(Agencia agencia) {
+		this.inmuebles=agencia.getInmuebles();
+		this.nombre="agenciaAuxiliar";
 	}
 	
 	public Agencia(String nombre, ArrayList<Inmueble> inmuebles) {
@@ -63,8 +63,11 @@ public class Agencia {
 		return toret;
 	}
 
+	
 	public ArrayList<Inmueble> getInmuebles() {
-		return inmuebles;
+		@SuppressWarnings("unchecked")
+		ArrayList<Inmueble> toret= (ArrayList<Inmueble>) inmuebles.clone();
+		return toret;
 	}
 
 	public void setInmuebles(ArrayList<Inmueble> inmuebles) {
@@ -116,7 +119,6 @@ public class Agencia {
 		int pos=obtenerPos(id);
 		if(pos!=-1) {
 			this.inmuebles.remove(pos);
-			System.out.println("Borrado con éxito el inmueble "+id+";");
 		} 
 		else System.err.println("No se ha encontrado ningún inmueble con el ID "+id+" en esta agencia;");
 	}

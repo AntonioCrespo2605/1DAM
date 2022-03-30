@@ -173,6 +173,7 @@ public abstract class Inmueble {
 		String toret="ID:"+getId()+"\n"+getDireccion().toString()+"\nNúmero de Habitaciones:"+getNumHab()+"\n";
 		if(isVenta())toret+="Precio de venta:"+getPrecioVenta()+"  ";
 		if(isAlquiler())toret+="Precio de alquiler:"+getPrecioAlquiler();
+		toret+="\nSuperficie:"+getSuperficie();
 		toret+="\nGaraje:";
 		if(isGaraje())toret+="Si";
 		else toret+="No";	
@@ -182,7 +183,4 @@ public abstract class Inmueble {
 	public String toStringShort() {
 		return"ID:"+getId();
 	}
-	
-	
-	
 }

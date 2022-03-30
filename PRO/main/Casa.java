@@ -1,7 +1,7 @@
 package main;
 import java.util.Random;
 
-public class Casa extends Inmueble{
+public class Casa extends Inmueble implements Impuestable{
 	private static Random r=new Random();
 	
 	private boolean jardin;
@@ -68,9 +68,19 @@ public class Casa extends Inmueble{
 		String toret="Casa\n"+super.toString();
 		if(this.jardin)toret+=("\nJardín incluído");
 		if(this.piscina)toret+=("\nPiscina incluída");
-		toret+=";";
+		if(this.isVenta())toret+=("\nPrecio Venta con impuestos:"+precioVentaConImpuesto()+";");
+		if(this.isAlquiler())toret+=("\nPrecio Alquiler con impuestos:"+precioAlquilerConImpuesto()+";");
 		return toret;
 	}
 	
+	public double precioAlquilerConImpuesto() {
+		double preciofinal=getPrecioAlquiler()+(getPrecioAlquiler()*ITP/100)+(getPrecioAlquiler()*IVA/100);
+		return preciofinal;
+	}
+	
+	public double precioVentaConImpuesto() {
+		double preciofinal=getPrecioVenta()+(getPrecioVenta()*ITP/100)+(getPrecioVenta()*IVA/100);
+		return preciofinal;
+	}
 	
 }
