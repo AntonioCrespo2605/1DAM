@@ -63,12 +63,12 @@ public class Direccion {
 		
 		this.tipo=TIPOS[r.nextInt(6)];
 		this.nombre=nombresCalleRandom[r.nextInt(10)];
-		this.cp=generateRandomCP();
+		this.cp=generarRandomCP();
 		this.num=r.nextInt(21);
 	}
 	
 	/*it generates a random Postal Code*/
-	private static int generateRandomCP() {
+	private static int generarRandomCP() {
 		String aux="";
 		int i;
 		for(i=0;i<5;i++) {

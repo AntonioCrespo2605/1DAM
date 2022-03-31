@@ -77,17 +77,9 @@ public class Agencia {
 	public String getNombre() {
 		return nombre;
 	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 	
-	public void anhadirInmueble(Piso p) {
-		this.inmuebles.add(p);
-	}
-	
-	public void anhadirInmueble(Casa c) {
-		this.inmuebles.add(c);
+	public void anhadirInmueble(Inmueble i) {
+		this.inmuebles.add(i);
 	}
 	
 	public void mostrarInmuebles() {
@@ -119,6 +111,7 @@ public class Agencia {
 		int pos=obtenerPos(id);
 		if(pos!=-1) {
 			this.inmuebles.remove(pos);
+			System.out.println("Inmueble borrado con éxito;");
 		} 
 		else System.err.println("No se ha encontrado ningún inmueble con el ID "+id+" en esta agencia;");
 	}

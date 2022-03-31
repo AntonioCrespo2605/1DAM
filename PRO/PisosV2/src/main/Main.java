@@ -1040,7 +1040,7 @@ public class Main {
 			if(aux==-1) {
 				ok=false;
 				System.err.println("Porfavor, inténtelo de nuevo;");
-			}
+			}else 
 			break;
 		}
 		}while(!ok);

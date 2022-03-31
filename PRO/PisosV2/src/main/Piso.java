@@ -7,7 +7,7 @@ public class Piso extends Inmueble implements Impuestable{
 	private char letra;
 	private boolean estudio;
 	private static final char[] LETRAS= {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-	Random r=new Random();
+	private static Random r=new Random();
 	
 	private void checkLetra(char l) {
 		boolean ok=false;
@@ -39,7 +39,9 @@ public class Piso extends Inmueble implements Impuestable{
 	public Piso() {
 		super();
 		this.letra=LETRAS[r.nextInt(26)];
-		this.estudio=r.nextBoolean();
+		int num=r.nextInt(3);
+		if(num==0)this.estudio=true;
+		else this.estudio=false;
 		if(estudio)super.setNumHab(1);
 		this.numPiso=r.nextInt(10);
 	}
