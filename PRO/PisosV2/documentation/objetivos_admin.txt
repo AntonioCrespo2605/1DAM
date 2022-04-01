@@ -1,0 +1,15 @@
+OBJETIVOS
+01.Entrar en el sistema
+02.Poner a la venta un nuevo inmueble
+03.Eliminar un inmueble del catálogo
+04.Verificar que un inmueble se pueda añadir al catálogo
+05.Ver todos los inmuebles disponibles
+06.Salir del sistema
+
+CASOS DE USO
+01.Loguearse
+02.Crear Inmueble
+03.Borrar Inmueble
+04.Verificar Inmueble
+05.Ver catálogo
+06.Cerrar sesión
