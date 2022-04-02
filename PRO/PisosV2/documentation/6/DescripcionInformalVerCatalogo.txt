@@ -1,0 +1,1 @@
+El cliente solicita ver el catálogo y muestra los inmuebles disponibles

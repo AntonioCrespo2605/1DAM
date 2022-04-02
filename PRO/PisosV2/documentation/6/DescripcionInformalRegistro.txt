@@ -1,0 +1,1 @@
+El cliente introduce un nickname y una contraseña para crear una cuenta. El sistema debe pedir la contraseña 2 veces y comprobar que tanto la contraseña como el nickname sean válidos

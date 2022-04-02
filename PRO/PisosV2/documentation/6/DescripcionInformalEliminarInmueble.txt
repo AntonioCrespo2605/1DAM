@@ -1,0 +1,1 @@
+El administrador selecciona la opción de eliminar inmueble e introduce el ID del inmueble a eliminar o la opción de cancelar. Si la opción elegida no es ni un ID existente o cancelar muestra un mensaje y vuelve a sacar el mensaje. Si introduce un ID existente se elimina el inmueble.
