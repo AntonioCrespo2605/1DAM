@@ -1,0 +1,97 @@
+05-05-2022 10:15:37
+Conexiones activas
+  Proto  Direcci¢n local        Direcci¢n remota       Estado
+  TCP    0.0.0.0:445            DESKTOP-BLV0QG7:0      LISTENING
+  TCP    0.0.0.0:3307           DESKTOP-BLV0QG7:0      LISTENING
+  TCP    0.0.0.0:5357           DESKTOP-BLV0QG7:0      LISTENING
+  TCP    0.0.0.0:11100          DESKTOP-BLV0QG7:0      LISTENING
+  TCP    0.0.0.0:49664          DESKTOP-BLV0QG7:0      LISTENING
+  TCP    0.0.0.0:49666          DESKTOP-BLV0QG7:0      LISTENING
+  TCP    0.0.0.0:49668          DESKTOP-BLV0QG7:0      LISTENING
+  TCP    127.0.0.1:11200        DESKTOP-BLV0QG7:0      LISTENING
+  TCP    127.0.0.1:11300        DESKTOP-BLV0QG7:0      LISTENING
+  TCP    127.0.0.1:51261        DESKTOP-BLV0QG7:11200  ESTABLISHED
+  TCP    127.0.0.1:59416        DESKTOP-BLV0QG7:59415  ESTABLISHED
+  TCP    127.0.0.1:59418        DESKTOP-BLV0QG7:59417  ESTABLISHED
+  TCP    192.168.56.1:139       DESKTOP-BLV0QG7:0      LISTENING
+  TCP    192.168.110.63:11100   DESKTOP-4HCVDK7:61967  ESTABLISHED
+  TCP    192.168.110.63:59806   5.255.145.227:https    ESTABLISHED
+  TCP    192.168.110.63:59808   40.101.137.82:https    ESTABLISHED
+  TCP    192.168.110.63:59847   download:http          CLOSE_WAIT
+  TCP    192.168.110.63:59859   52.113.205.35:https    ESTABLISHED
+  TCP    192.168.110.63:59861   139.45.197.253:https   TIME_WAIT
+  TCP    192.168.110.63:63298   20.54.37.73:https      ESTABLISHED
+  TCP    192.168.110.63:63399   52.114.92.92:https     ESTABLISHED
+  TCP    [::]:445               DESKTOP-BLV0QG7:0      LISTENING
+  TCP    [::]:3307              DESKTOP-BLV0QG7:0      LISTENING
+  TCP    [::]:7680              DESKTOP-BLV0QG7:0      LISTENING
+  TCP    [::]:33060             DESKTOP-BLV0QG7:0      LISTENING
+  TCP    [::]:49665             DESKTOP-BLV0QG7:0      LISTENING
+  TCP    [::]:49667             DESKTOP-BLV0QG7:0      LISTENING
+  TCP    [::]:49669             DESKTOP-BLV0QG7:0      LISTENING
+  UDP    0.0.0.0:3702           *:*                    
+  UDP    0.0.0.0:5050           *:*                    
+  UDP    0.0.0.0:5353           *:*                    
+  UDP    0.0.0.0:5353           *:*                    
+  UDP    0.0.0.0:5355           *:*                    
+  UDP    0.0.0.0:55375          *:*                    
+  UDP    127.0.0.1:1900         *:*                    
+  UDP    127.0.0.1:61123        *:*                    
+  UDP    192.168.56.1:138       *:*                    
+  UDP    192.168.56.1:61121     *:*                    
+  UDP    192.168.110.63:138     *:*                    
+  UDP    192.168.110.63:61122   *:*                    
+  UDP    [::]:3702              *:*                    
+  UDP    [::]:5353              *:*                    
+  UDP    [::]:5353              *:*                    
+  UDP    [::]:54753             *:*                    
+  UDP    [::]:63762             *:*                    
+  UDP    [::1]:61120            *:*                    
+  UDP    [fe80::7f:581d:abb2:4202%6]:61118  *:*                    
+  UDP    [fe80::800c:820e:f1a6:52ef%10]:61119  *:*                    
+05-05-2022 10:47:57
+Conexiones activas
+  Proto  Direcci¢n local        Direcci¢n remota       Estado
+  TCP    0.0.0.0:445            DESKTOP-BLV0QG7:0      LISTENING
+  TCP    0.0.0.0:3307           DESKTOP-BLV0QG7:0      LISTENING
+  TCP    0.0.0.0:5357           DESKTOP-BLV0QG7:0      LISTENING
+  TCP    0.0.0.0:33060          DESKTOP-BLV0QG7:0      LISTENING
+  TCP    0.0.0.0:49665          DESKTOP-BLV0QG7:0      LISTENING
+  TCP    0.0.0.0:49667          DESKTOP-BLV0QG7:0      LISTENING
+  TCP    0.0.0.0:49669          DESKTOP-BLV0QG7:0      LISTENING
+  TCP    127.0.0.1:59416        DESKTOP-BLV0QG7:59415  ESTABLISHED
+  TCP    127.0.0.1:59418        DESKTOP-BLV0QG7:59417  ESTABLISHED
+  TCP    192.168.110.63:139     DESKTOP-BLV0QG7:0      LISTENING
+  TCP    192.168.110.63:59806   5.255.145.227:https    CLOSE_WAIT
+  TCP    192.168.110.63:59847   download:http          CLOSE_WAIT
+  TCP    192.168.110.63:59869   40.101.137.82:https    ESTABLISHED
+  TCP    192.168.110.63:59954   52.114.104.166:https   ESTABLISHED
+  TCP    192.168.110.63:63298   20.54.37.73:https      ESTABLISHED
+  TCP    192.168.110.63:63399   52.114.92.92:https     ESTABLISHED
+  TCP    [::]:445               DESKTOP-BLV0QG7:0      LISTENING
+  TCP    [::]:3307              DESKTOP-BLV0QG7:0      LISTENING
+  TCP    [::]:7680              DESKTOP-BLV0QG7:0      LISTENING
+  TCP    [::]:49664             DESKTOP-BLV0QG7:0      LISTENING
+  TCP    [::]:49666             DESKTOP-BLV0QG7:0      LISTENING
+  TCP    [::]:49668             DESKTOP-BLV0QG7:0      LISTENING
+  UDP    0.0.0.0:123            *:*                    
+  UDP    0.0.0.0:3702           *:*                    
+  UDP    0.0.0.0:5353           *:*                    
+  UDP    0.0.0.0:5353           *:*                    
+  UDP    0.0.0.0:5353           *:*                    
+  UDP    0.0.0.0:54752          *:*                    
+  UDP    0.0.0.0:63762          *:*                    
+  UDP    127.0.0.1:55897        *:*                    
+  UDP    192.168.56.1:137       *:*                    
+  UDP    192.168.56.1:1900      *:*                    
+  UDP    192.168.110.63:137     *:*                    
+  UDP    192.168.110.63:1900    *:*                    
+  UDP    [::]:123               *:*                    
+  UDP    [::]:3702              *:*                    
+  UDP    [::]:5353              *:*                    
+  UDP    [::]:5355              *:*                    
+  UDP    [::]:55375             *:*                    
+  UDP    [::1]:1900             *:*                    
+  UDP    [fe80::7f:581d:abb2:4202%6]:1900  *:*                    
+  UDP    [fe80::800c:820e:f1a6:52ef%10]:1900  *:*                    
+null

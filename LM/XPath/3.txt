@@ -1,0 +1,15 @@
+*Mostrar los nombres de los módulos del ciclo de "Sistemas Microinformáticos y Redes"- 
+		//modulo[ciclo=//ciclos/ciclo[nombre="Administración de Sistemas Informáticos en Red"]/@id]/nombre
+
+*Mostrar los nombres de los ciclos formativos que incluyen el módulo "Lenguajes de marcas y sistemas de gestión de información"-
+		//ciclos/ciclo[@id=//modulo[nombre="Lenguajes de marcas y sistemas de gestión de información"]/ciclo]/nombre
+
+*Mostrar los nombres de los módulos de ciclos de Grado Superior-
+		//modulo[ciclo=//ciclos/ciclo[grado="Superior"]/@id]/nombre
+
+*Mostrar los nombres de los módulos de los ciclos formativos cuyo título se aprobó en 2008-
+		//modulo[ciclo=//ciclos/ciclo[decretoTitulo/@año="2008"]/@id]/nombre
+
+*Mostrar los grados de los ciclos formativos con módulos de primer curso-
+		//ciclos/ciclo[@id=//modulo[curso=1]/ciclo]/grado
+

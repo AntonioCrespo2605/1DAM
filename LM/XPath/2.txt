@@ -1,0 +1,12 @@
+*Mostrar el nombre sin etiquetas de los módulos que se imparten en el instituto- //modulo/nombre
+
+*Mostrar el nombre de los módulos que se imparten en el ciclo formativo ASIR- //modulo[ciclo="ASIR"]/nombre
+
+*Mostrar el nombre de los módulos que se imparten en segundo curso de cualquier ciclo formativo- //modulo[curso=2]/nombre
+
+*Mostrar el nombre de los módulos que tengan menos de 5 horas semanales- //modulo[horasSemanales<5]/nombre
+
+*Mostrar el nombre de los módulos que se imparten en el primer curso del ciclo formativo ASIR- //modulo[curso=1 and ciclo="ASIR"]/nombre
+
+*Mostrar las horas semanales sin etiquetas de los módulos que se imparten en más de 3 horas semanales- //modulo[horasSemanales>3]/horasSemanales
+

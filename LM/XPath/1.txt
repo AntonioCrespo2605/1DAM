@@ -1,0 +1,17 @@
+*mostrar el nombre del instituto- ies/nombre
+
+*Mostrar la página web del instituto sin etiquetas- ies/web
+
+*Mostrar el nombre de los ciclos formativos sin etiquetas- //ciclo/nombre
+
+*Mostrar las siglas por las que se conocen los ciclos formativos- //ciclo/@id
+
+*Mostrar los años en los que se publicaron los decretos de los ciclos formativos-//decretoTitulo/@año
+
+*Mostrar toda la información de los ciclos formativos de grado medio- //ciclo[grado="Medio"]
+
+*Mostrar los nombres de los ciclos formativos de grado superior- //ciclo[grado="Superior"]/nombre
+
+*Mostrar los nombres de los ciclos formativos anteriores a 2010 sin etiquetas- //ciclo[decretoTitulo/@año<2010]/nombre
+
+*Mostrar los nombres de los ciclos formativos de 2008 o de 2011- //ciclo[(decretoTitulo/@año=2011) or (decretoTitulo/@año=2008)]/nombre
